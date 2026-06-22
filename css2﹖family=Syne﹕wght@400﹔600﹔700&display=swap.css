@@ -1,0 +1,21 @@
+@font-face {
+  font-family: 'Syne';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/syne/v24/8vIH7w4qzmVxq2JB80z-.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Syne';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/syne/v24/8vIH7w4qzmVxq2JB80z-.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Syne';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/syne/v24/8vIH7w4qzmVxq2JB80z-.woff2) format('woff2');
+}

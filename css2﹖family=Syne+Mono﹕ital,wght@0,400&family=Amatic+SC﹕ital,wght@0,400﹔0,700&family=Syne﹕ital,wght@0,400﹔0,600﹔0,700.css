@@ -1,0 +1,36 @@
+@font-face {
+  font-family: 'Amatic SC';
+  font-style: normal;
+  font-weight: 400;
+  src: url(../fonts.gstatic.com/s/amaticsc/v28/TUZyzwprpvBS1izr_vO0CO6YcZU.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Amatic SC';
+  font-style: normal;
+  font-weight: 700;
+  src: url(../fonts.gstatic.com/s/amaticsc/v28/TUZ3zwprpvBS1izr_vOMscG6fL8F3WU.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Syne';
+  font-style: normal;
+  font-weight: 400;
+  src: url(../fonts.gstatic.com/s/syne/v24/8vIH7w4qzmVxq2JB80z-.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Syne';
+  font-style: normal;
+  font-weight: 600;
+  src: url(../fonts.gstatic.com/s/syne/v24/8vIH7w4qzmVxq2JB80z-.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Syne';
+  font-style: normal;
+  font-weight: 700;
+  src: url(../fonts.gstatic.com/s/syne/v24/8vIH7w4qzmVxq2JB80z-.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Syne Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: url(../fonts.gstatic.com/s/synemono/v16/K2FzfZNHj_FHBmRbFvHzJ6CiDyo.woff2) format('woff2');
+}
