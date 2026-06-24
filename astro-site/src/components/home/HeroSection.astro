@@ -1,0 +1,78 @@
+---
+export interface Props {
+  lang?: 'de' | 'en';
+}
+const { lang = 'de' } = Astro.props;
+
+const R2 = 'https://pub-ba018632258942529034e3ab490a6167.r2.dev';
+
+const content = {
+  de: {
+    heading: 'Verbindung von Selbst und Seele',
+    p1: 'Du fühlst tiefer, als die Welt versteht.',
+    p2: 'Als schamanische Praktikerin und Meditationslehrerin halte ich einen Raum, in dem du einfach du selbst sein kannst.',
+    cta: 'Angebot entdecken',
+    ctaHref: '/de/',
+  },
+  en: {
+    heading: 'Connection of self and soul',
+    p1: 'You feel more deeply than the world understands.',
+    p2: 'As a shamanic practitioner and meditation teacher, I hold a space where you can simply be yourself.',
+    cta: 'Explore my offer',
+    ctaHref: '/en/',
+  },
+};
+const c = content[lang];
+
+const bgImg = `${R2}/d747ec00-d28c-43e5-aca7-30031d0940a1_beautiful-feathers-arrangement%EF%B9%96format=2500w.jpg`;
+const portraitImg = `${R2}/0fd5e3db-1d1b-4b37-b7e6-9aa70e350a3f_Dada_illustration_smiling_white%EF%B9%96format=2500w.png`;
+---
+
+<section
+  class="relative min-h-screen flex items-center overflow-hidden"
+  style={`background: var(--light);`}
+>
+  <!-- Background feathers image -->
+  <div class="absolute inset-0 z-0 opacity-20">
+    <img
+      src={bgImg}
+      alt=""
+      role="presentation"
+      class="w-full h-full object-cover object-center"
+      loading="eager"
+    />
+  </div>
+
+  <div class="relative z-10 max-w-screen-xl mx-auto px-6 md:px-12 lg:px-24 w-full py-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+    <!-- Text column -->
+    <div class="flex flex-col gap-6">
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-syne font-bold leading-tight text-dc-black">
+        {c.heading}
+      </h2>
+      <p class="text-xl md:text-2xl font-syne text-dc-black leading-relaxed">
+        {c.p1}
+      </p>
+      <p class="text-base md:text-lg font-syne text-dc-black opacity-80 leading-relaxed">
+        {c.p2}
+      </p>
+      <div class="mt-4">
+        <a href={c.ctaHref} class="btn-dark">
+          {c.cta}
+        </a>
+      </div>
+    </div>
+
+    <!-- Portrait image -->
+    <div class="flex justify-center lg:justify-end">
+      <img
+        src={portraitImg}
+        alt="Dada Chi – Illustration"
+        width="600"
+        height="800"
+        loading="eager"
+        class="max-h-[70vh] w-auto object-contain"
+      />
+    </div>
+  </div>
+</section>

@@ -1,0 +1,223 @@
+---
+export interface Props {
+  lang?: 'de' | 'en';
+  currentPath?: string;
+}
+const { lang = 'de', currentPath = '/' } = Astro.props;
+
+const R2 = 'https://pub-ba018632258942529034e3ab490a6167.r2.dev';
+const BASE = 'https://dadachi.com';
+
+const navDE = {
+  offer: { label: 'Angebot', href: '/de/' },
+  books: { label: 'Bücher', href: '/de/books' },
+  symbols: { label: 'Kraftsymbole', href: '/de/power-symbols' },
+  tattoo: { label: 'Tattoo Rituale & Trainings', href: '/de/tattoo-rituals-trainings' },
+  chiTribe: {
+    label: 'Chi Tribe',
+    href: '/de/chi-tribe-collection',
+    children: [
+      { label: 'Übersicht', href: '/de/chi-tribe/overview' },
+      { label: 'Sessions & Reisen', href: '/de/chi-tribe/flow-sessions' },
+      { label: 'Rituale', href: '/de/chi-tribe/rituals' },
+      { label: 'Aura-Schule', href: '/de/chi-tribe/aura-school' },
+      { label: 'E-Books', href: '/de/chi-tribe/e-books' },
+      { label: 'Runen', href: '/de/chi-tribe/runes' },
+      { label: 'Baumhoroskop', href: '/de/chi-tribe/tree-horoscope' },
+      { label: 'Steinwissen', href: '/de/chi-tribe/crystals' },
+      { label: 'Lieder & Übungen', href: '/de/chi-tribe/chants-practices' },
+      { label: 'Cosmic Radio', href: '/de/chi-tribe/cosmic-radio' },
+    ],
+  },
+  ressourcen: {
+    label: 'Ressourcen',
+    href: '/de/ressourcen',
+    children: [
+      { label: 'Blog', href: '/de/blog' },
+      { label: 'Podcast', href: '/podcast' },
+      { label: 'Aura App', href: '/de/gnothi-seauton' },
+    ],
+  },
+  shop: { label: 'Shop', href: '/shop' },
+  portrait: { label: 'Über mich', href: '/de/portrait' },
+  contact: { label: 'Kontakt', href: '/contact' },
+};
+
+const navEN = {
+  offer: { label: 'Offer', href: '/en/' },
+  books: { label: 'Books', href: '/en/books' },
+  symbols: { label: 'Power Symbols', href: '/en/power-symbols' },
+  tattoo: { label: 'Tattoo Rituals & Trainings', href: '/en/tattoo-rituals-trainings' },
+  chiTribe: {
+    label: 'Chi Tribe',
+    href: '/en/chi-tribe-collection',
+    children: [
+      { label: 'Overview', href: '/en/chi-tribe/overview' },
+      { label: 'Sessions & Journeys', href: '/en/chi-tribe/flow-sessions' },
+      { label: 'Rituals', href: '/en/chi-tribe/rituals' },
+      { label: 'Aura School', href: '/en/chi-tribe/aura-school' },
+      { label: 'E-Books', href: '/en/chi-tribe/e-books' },
+      { label: 'Runes', href: '/en/chi-tribe/runes' },
+      { label: 'Tree Astrology', href: '/en/chi-tribe/tree-horoscope' },
+      { label: 'Crystal Wisdom', href: '/en/chi-tribe/crystals' },
+      { label: 'Chants & Practices', href: '/en/chi-tribe/chants-practices' },
+      { label: 'Cosmic Radio', href: '/en/chi-tribe/cosmic-radio' },
+    ],
+  },
+  ressourcen: {
+    label: 'Resources',
+    href: '/en/resources',
+    children: [
+      { label: 'Blog', href: '/en/blog' },
+      { label: 'Podcast', href: '/podcast' },
+      { label: 'Aura App', href: '/en/gnothi-seauton' },
+    ],
+  },
+  shop: { label: 'Shop', href: '/shop' },
+  portrait: { label: 'About me', href: '/en/portrait' },
+  contact: { label: 'Contact', href: '/contact' },
+};
+
+const nav = lang === 'de' ? navDE : navEN;
+const altLang = lang === 'de' ? 'en' : 'de';
+const altPath = currentPath.replace(`/${lang}/`, `/${altLang}/`);
+---
+
+<!-- Announcement Bar -->
+<div class="announcement-bar">
+  <a href="https://tally.so/r/w4WBJA" target="_blank" rel="noopener noreferrer">
+    {lang === 'de' ? 'Hier gibt\'s Geschenkgutscheine →' : 'Gift Certificates available here →'}
+  </a>
+</div>
+
+<!-- Main Header -->
+<header id="header" class="sticky top-0 z-50 w-full bg-dc-white border-b border-gray-100 shadow-sm">
+  <div class="max-w-screen-xl mx-auto px-4 md:px-8 flex items-center justify-between h-16 md:h-20">
+
+    <!-- Logo -->
+    <a href={`/${lang}/`} class="flex-shrink-0">
+      <img
+        src={`${R2}/adbb76e3-8361-4f10-82ea-3e5d7da38d94_Logo_Dada_Chi-2%EF%B9%96format=300w.png`}
+        alt="Dada Chi Logo"
+        width="120"
+        height="40"
+        loading="eager"
+        class="h-10 w-auto object-contain"
+      />
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="hidden lg:flex items-center gap-6 text-sm font-syne font-semibold uppercase tracking-wider">
+
+      <a href={nav.offer.href} class="hover:text-dc-dark transition-colors">{nav.offer.label}</a>
+      <a href={nav.books.href} class="hover:text-dc-dark transition-colors">{nav.books.label}</a>
+      <a href={nav.symbols.href} class="hover:text-dc-dark transition-colors">{nav.symbols.label}</a>
+      <a href={nav.tattoo.href} class="hover:text-dc-dark transition-colors">{nav.tattoo.label}</a>
+
+      <!-- Chi Tribe dropdown -->
+      <div class="relative group">
+        <a href={nav.chiTribe.href} class="hover:text-dc-dark transition-colors flex items-center gap-1">
+          {nav.chiTribe.label}
+          <svg class="w-3 h-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </a>
+        <div class="absolute left-0 top-full mt-1 hidden group-hover:block bg-dc-white border border-gray-100 shadow-lg min-w-[200px] py-2 z-50">
+          {nav.chiTribe.children.map(child => (
+            <a href={child.href} class="block px-4 py-2 text-xs hover:bg-dc-light hover:text-dc-dark transition-colors">
+              {child.label}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Ressourcen dropdown -->
+      <div class="relative group">
+        <a href={nav.ressourcen.href} class="hover:text-dc-dark transition-colors flex items-center gap-1">
+          {nav.ressourcen.label}
+          <svg class="w-3 h-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </a>
+        <div class="absolute left-0 top-full mt-1 hidden group-hover:block bg-dc-white border border-gray-100 shadow-lg min-w-[160px] py-2 z-50">
+          {nav.ressourcen.children.map(child => (
+            <a href={child.href} class="block px-4 py-2 text-xs hover:bg-dc-light hover:text-dc-dark transition-colors">
+              {child.label}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <a href={nav.shop.href} class="hover:text-dc-dark transition-colors">{nav.shop.label}</a>
+      <a href={nav.portrait.href} class="hover:text-dc-dark transition-colors">{nav.portrait.label}</a>
+      <a href={nav.contact.href} class="hover:text-dc-dark transition-colors">{nav.contact.label}</a>
+
+      <!-- Language switcher -->
+      <a href={altPath} class="ml-2 text-xs font-syne-mono border border-dc-black px-2 py-1 hover:bg-dc-black hover:text-dc-white transition-colors">
+        {altLang.toUpperCase()}
+      </a>
+    </nav>
+
+    <!-- Mobile hamburger -->
+    <button id="mobile-menu-btn" class="lg:hidden p-2 text-dc-black" aria-label="Menu">
+      <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+      <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden lg:hidden bg-dc-white border-t border-gray-100 pb-4">
+    <nav class="flex flex-col px-6 pt-4 gap-1 text-sm font-syne font-semibold uppercase tracking-wider">
+      <a href={nav.offer.href} class="py-2 hover:text-dc-dark">{nav.offer.label}</a>
+      <a href={nav.books.href} class="py-2 hover:text-dc-dark">{nav.books.label}</a>
+      <a href={nav.symbols.href} class="py-2 hover:text-dc-dark">{nav.symbols.label}</a>
+      <a href={nav.tattoo.href} class="py-2 hover:text-dc-dark">{nav.tattoo.label}</a>
+
+      <!-- Chi Tribe mobile -->
+      <div>
+        <a href={nav.chiTribe.href} class="block py-2 hover:text-dc-dark">{nav.chiTribe.label}</a>
+        <div class="pl-4 flex flex-col gap-1">
+          {nav.chiTribe.children.map(child => (
+            <a href={child.href} class="py-1 text-xs hover:text-dc-dark opacity-80">{child.label}</a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Ressourcen mobile -->
+      <div>
+        <a href={nav.ressourcen.href} class="block py-2 hover:text-dc-dark">{nav.ressourcen.label}</a>
+        <div class="pl-4 flex flex-col gap-1">
+          {nav.ressourcen.children.map(child => (
+            <a href={child.href} class="py-1 text-xs hover:text-dc-dark opacity-80">{child.label}</a>
+          ))}
+        </div>
+      </div>
+
+      <a href={nav.shop.href} class="py-2 hover:text-dc-dark">{nav.shop.label}</a>
+      <a href={nav.portrait.href} class="py-2 hover:text-dc-dark">{nav.portrait.label}</a>
+      <a href={nav.contact.href} class="py-2 hover:text-dc-dark">{nav.contact.label}</a>
+
+      <!-- Language switcher mobile -->
+      <a href={altPath} class="mt-2 self-start text-xs font-syne-mono border border-dc-black px-3 py-1">
+        Switch to {altLang.toUpperCase()}
+      </a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const menuIcon = document.getElementById('menu-icon');
+  const closeIcon = document.getElementById('close-icon');
+
+  btn?.addEventListener('click', () => {
+    menu?.classList.toggle('hidden');
+    menuIcon?.classList.toggle('hidden');
+    closeIcon?.classList.toggle('hidden');
+  });
+</script>

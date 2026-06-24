@@ -1,0 +1,58 @@
+---
+export interface Props {
+  lang?: 'de' | 'en';
+}
+const { lang = 'de' } = Astro.props;
+
+const R2 = 'https://pub-ba018632258942529034e3ab490a6167.r2.dev';
+
+const content = {
+  de: {
+    heading: 'Begegne deiner Aura',
+    p1: 'Kein Kurs, keine Anmeldung – einfach ausprobieren.',
+    cta: 'Zur Aura App',
+    ctaHref: '/de/gnothi-seauton',
+  },
+  en: {
+    heading: 'Meet your Aura',
+    p1: 'No course, no sign-up – just try it.',
+    cta: 'Open Aura App',
+    ctaHref: '/en/gnothi-seauton',
+  },
+};
+const c = content[lang];
+
+const gifImg = `${R2}/88ca9009-acde-48b9-9a04-6ae92f049006_Djeli%2BGIF%EF%B9%96format=2500w.gif`;
+---
+
+<section class="section-pad" style="background: var(--light);">
+  <div class="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+    <!-- GIF / Visual -->
+    <div class="flex justify-center">
+      <div class="w-full max-w-sm overflow-hidden rounded-lg shadow-lg">
+        <img
+          src={gifImg}
+          alt={lang === 'de' ? 'Aura App Demonstration' : 'Aura App Demo'}
+          width="500"
+          height="500"
+          loading="lazy"
+          class="w-full h-auto object-cover"
+        />
+      </div>
+    </div>
+
+    <!-- Text -->
+    <div class="flex flex-col gap-6">
+      <h2 class="text-3xl md:text-4xl font-syne font-bold text-dc-black">
+        {c.heading}
+      </h2>
+      <p class="text-lg font-syne text-dc-black opacity-80 leading-relaxed">
+        {c.p1}
+      </p>
+      <a href={c.ctaHref} class="btn-dark self-start">
+        {c.cta}
+      </a>
+    </div>
+  </div>
+</section>

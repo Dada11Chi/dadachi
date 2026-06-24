@@ -1,0 +1,58 @@
+---
+export interface Props {
+  lang?: 'de' | 'en';
+}
+const { lang = 'de' } = Astro.props;
+
+const R2 = 'https://pub-ba018632258942529034e3ab490a6167.r2.dev';
+
+const content = {
+  de: {
+    heading: 'Oder lass mein Buch dein Begleiter sein.',
+    body: 'In „Menschsein – ein Reiseführer" zeige ich dir die schamanische Perspektive auf die Welt. Was ist „Gott"? Was ist die Anderswelt oder das Jenseits? Was ist ein Mensch? Und was ist sein Zweck? Warum ist das Leben auf der Erde so, wie es ist? Woraus besteht die Aura, und wie funktioniert sie? Was ist der Platz des Menschen im großen Netz des Lebens?',
+    cta: 'Buch kaufen',
+    ctaHref: 'https://dadachi.com/shop/p/being-human-a-travel-guide-ebook',
+    alt: 'Menschsein – ein Reiseführer',
+  },
+  en: {
+    heading: 'Or let my book be your companion.',
+    body: 'In "Being Human – A Travel Guide," I show you the shamanic perspective on the world. What is "God"? What is the Otherworld or the Afterlife? What is a human being? And what is their purpose? Why is life on Earth the way it is? What does the Aura consist of, and how does it work? What is the place of humans in the great web of life?',
+    cta: 'Buy the book',
+    ctaHref: 'https://dadachi.com/shop/p/being-human-a-travel-guide-ebook',
+    alt: 'Being Human – A Travel Guide',
+  },
+};
+const c = content[lang];
+
+const bookImg = `${R2}/471eb76d-2255-4fe8-9f01-45ace5693da4_Menschsein-1-EN.png%EF%B9%96format=750w.png`;
+---
+
+<section class="section-pad bg-dc-white">
+  <div class="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+    <!-- Text -->
+    <div class="flex flex-col gap-6 order-2 lg:order-1">
+      <h2 class="text-3xl md:text-4xl font-syne font-bold text-dc-black leading-tight">
+        {c.heading}
+      </h2>
+      <p class="text-base font-syne text-dc-black opacity-75 leading-relaxed">
+        {c.body}
+      </p>
+      <a href={c.ctaHref} class="btn-dark self-start" target="_blank" rel="noopener noreferrer">
+        {c.cta}
+      </a>
+    </div>
+
+    <!-- Book cover -->
+    <div class="flex justify-center lg:justify-end order-1 lg:order-2">
+      <img
+        src={bookImg}
+        alt={c.alt}
+        width="500"
+        height="500"
+        loading="lazy"
+        class="max-w-xs md:max-w-sm w-full h-auto object-contain shadow-lg"
+      />
+    </div>
+  </div>
+</section>

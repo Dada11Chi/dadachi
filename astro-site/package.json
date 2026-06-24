@@ -1,0 +1,16 @@
+{
+  "name": "dadachi-astro",
+  "type": "module",
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/cloudflare": "^12.5.4",
+    "@astrojs/tailwind": "^5.1.4",
+    "astro": "^5.9.1",
+    "tailwindcss": "^3.4.17"
+  }
+}

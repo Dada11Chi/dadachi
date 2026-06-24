@@ -1,0 +1,73 @@
+---
+export interface Props {
+  lang?: 'de' | 'en';
+}
+const { lang = 'de' } = Astro.props;
+
+const content = {
+  de: {
+    heading: 'Ein Kraftsymbol für dich',
+    body: 'Abonniere meinen monatlichen Newsletter und erhalte als Willkommensgeschenk ein Kraftsymbol inklusive geführter Meditation. Kein Spam. Du kannst jederzeit abbestellen.',
+    placeholder: 'Deine E-Mail-Adresse',
+    cta: 'Abonnieren',
+    success: 'Danke für deine Anmeldung! Bitte überprüfe deinen Spam-Ordner für die E-Mail mit deinem Kraftsymbol und der Meditation :)',
+  },
+  en: {
+    heading: 'A Power Symbol For You',
+    body: 'Subscribe to my monthly newsletter and receive a Power Symbol including guided Meditation as a welcome gift. No spam. You can unsubscribe at any time.',
+    placeholder: 'Your email address',
+    cta: 'Subscribe',
+    success: 'Thank you for signing up! Please check your spam folder for the e-mail with your Power Symbol and Meditation :)',
+  },
+};
+const c = content[lang];
+---
+
+<section class="section-pad" style="background: var(--dark);">
+  <div class="max-w-screen-md mx-auto text-center flex flex-col gap-6">
+    <h2 class="text-3xl md:text-4xl font-syne font-bold text-dc-white">
+      {c.heading}
+    </h2>
+    <p class="text-base font-syne text-dc-white opacity-80 leading-relaxed">
+      {c.body}
+    </p>
+
+    <form
+      id="newsletter-form"
+      class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto w-full mt-4"
+      onsubmit="handleNewsletterSubmit(event)"
+    >
+      <input
+        type="email"
+        name="email"
+        required
+        placeholder={c.placeholder}
+        class="flex-1 px-4 py-3 text-dc-black font-syne text-sm bg-dc-white border-0 focus:outline-none focus:ring-2 focus:ring-dc-white/50"
+      />
+      <button
+        type="submit"
+        class="px-6 py-3 bg-dc-black text-dc-white font-syne font-semibold text-sm uppercase tracking-widest hover:bg-dc-accent transition-colors"
+      >
+        {c.cta}
+      </button>
+    </form>
+
+    <p id="newsletter-success" class="hidden text-dc-white font-syne text-sm opacity-80">
+      {c.success}
+    </p>
+  </div>
+</section>
+
+<script>
+  function handleNewsletterSubmit(e: Event) {
+    e.preventDefault();
+    const form = document.getElementById('newsletter-form') as HTMLFormElement;
+    const success = document.getElementById('newsletter-success');
+    if (form && success) {
+      form.classList.add('hidden');
+      success.classList.remove('hidden');
+    }
+  }
+  // Make function globally accessible
+  (window as any).handleNewsletterSubmit = handleNewsletterSubmit;
+</script>

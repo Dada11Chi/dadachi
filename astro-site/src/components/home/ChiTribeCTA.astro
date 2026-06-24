@@ -1,0 +1,127 @@
+---
+export interface Props {
+  lang?: 'de' | 'en';
+}
+const { lang = 'de' } = Astro.props;
+
+const R2 = 'https://pub-ba018632258942529034e3ab490a6167.r2.dev';
+
+const content = {
+  de: {
+    tagline: 'Chi Tribe Mitgliedschaft',
+    heading: 'Du bist nicht zu viel. Du brauchst nur den richtigen Raum.',
+    subheading: 'Der Chi Tribe ist für dich, wenn…',
+    intro: 'Der Chi Tribe ist ein lebendiger Raum für Menschen, die tief fühlen – und einen Ort suchen, an dem sie einfach sie selbst sein dürfen.',
+    details: 'Als Mitglied profitierst du von regelmäßigen Flow Sessions, der weltweit ersten Aura-Schule, monatlichen schamanischen Reisen, einer schamanischen Bibliothek und vielem mehr.',
+    price: 'Für CHF 99 pro Monat. Jederzeit kündbar.',
+    cta: 'Jetzt beitreten',
+    ctaHref: '/de/chi-tribe-collection',
+    benefits: [
+      'Regelmäßige Flow Sessions & Reisen',
+      'Die erste Aura-Schule der Welt',
+      'Schamanische Bibliothek',
+      'Kraftsymbole & Runen',
+      'Community & Begleitung',
+    ],
+  },
+  en: {
+    tagline: 'Chi Tribe Membership',
+    heading: 'You are not too much. You just need the right space.',
+    subheading: 'The Chi Tribe is for You, if…',
+    intro: 'The Chi Tribe is a vibrant space for people who feel deeply – and are looking for a place where they can simply be themselves.',
+    details: 'As a member, you\'ll benefit from regular Flow Sessions, the world\'s first Aura School, monthly shamanic journeys, a shamanic library and much more.',
+    price: 'For CHF 99 per month. Cancel anytime.',
+    cta: 'Join now',
+    ctaHref: '/en/chi-tribe-collection',
+    benefits: [
+      'Regular Flow Sessions & Journeys',
+      'The first Aura School on Earth',
+      'Shamanic Library',
+      'Power Symbols & Runes',
+      'Community & Accompaniment',
+    ],
+  },
+};
+const c = content[lang];
+
+const logoImg = `${R2}/426f145d-582c-4353-83a9-a1568586012b_Chi_Tribe_Logo%EF%B9%96format=750w.png`;
+const bgImg = `${R2}/ee18130c-c672-4392-a4c8-97b405916884_Seed%EF%B9%96format=2500w.png`;
+---
+
+<section class="section-pad relative overflow-hidden" style="background: var(--light);">
+  <!-- Subtle background graphic -->
+  <div class="absolute right-0 top-1/2 -translate-y-1/2 opacity-5 w-1/2 pointer-events-none">
+    <img src={bgImg} alt="" role="presentation" class="w-full h-auto" loading="lazy" />
+  </div>
+
+  <div class="relative z-10 max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+    <!-- Left: logo + benefits -->
+    <div class="flex flex-col gap-8">
+      <img
+        src={logoImg}
+        alt="Chi Tribe Logo"
+        width="200"
+        height="200"
+        loading="lazy"
+        class="w-32 h-32 object-contain"
+      />
+
+      <div>
+        <p class="label-tag mb-3">{c.tagline}</p>
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-syne font-bold leading-tight text-dc-black mb-6">
+          {c.heading}
+        </h1>
+        <h3 class="text-lg font-syne font-semibold text-dc-dark mb-4">{c.subheading}</h3>
+        <p class="text-base font-syne text-dc-black opacity-80 leading-relaxed mb-4">{c.intro}</p>
+        <p class="text-sm font-syne text-dc-black opacity-70 leading-relaxed">{c.details}</p>
+      </div>
+
+      <ul class="flex flex-col gap-2">
+        {c.benefits.map(b => (
+          <li class="flex items-center gap-3 text-sm font-syne text-dc-black">
+            <span class="w-1.5 h-1.5 rounded-full bg-dc-dark flex-shrink-0"></span>
+            {b}
+          </li>
+        ))}
+      </ul>
+
+      <div class="flex flex-col sm:flex-row gap-4 items-start">
+        <a href={c.ctaHref} class="btn-dark">{c.cta}</a>
+        <p class="text-xs font-syne-mono opacity-50 self-center">{c.price}</p>
+      </div>
+    </div>
+
+    <!-- Right: feature cards -->
+    <div class="grid grid-cols-1 gap-4">
+      {[
+        { title: lang === 'de' ? 'Flow Sessions & Schamanische Reisen' : 'Flow Sessions and Shamanic Journeys',
+          desc: lang === 'de'
+            ? 'Regelmäßige Impulse und monatliche schamanische Reise halten dich in Verbindung.'
+            : 'Daily life pulls. The connection fades. The Chi Tribe gives you a steady rhythm.',
+          img: `${R2}/85e20d7b-590c-4689-98e7-b335d3f381bc_Water%EF%B9%96format=500w.png` },
+        { title: lang === 'de' ? 'Die erste Aura-Schule der Welt' : 'The first Aura School on Earth',
+          desc: lang === 'de'
+            ? 'Sieben Stufen schamanischen Selbstwissens – exklusiv für den Chi Tribe entwickelt.'
+            : 'Seven levels of shamanic self-knowledge – developed exclusively for the Chi Tribe.',
+          img: `${R2}/8818fff4-7f9f-46bb-a265-4a42e08edbf2_Earth%EF%B9%96format=500w.png` },
+        { title: lang === 'de' ? 'Schamanische Bibliothek' : 'Shamanic Library',
+          desc: lang === 'de'
+            ? 'Gesänge, Runen, Kristallwissen, Chakra-Meditationen, E-Books – eine lebendige Sammlung.'
+            : 'Chants, Runes, Crystal wisdom, Chakra meditations, E-books – a living collection.',
+          img: `${R2}/426f145d-582c-4353-83a9-a1568586012b_Chi_Tribe_Logo%EF%B9%96format=300w.png` },
+      ].map(card => (
+        <div class="flex gap-4 p-5 bg-dc-white border border-gray-100">
+          <div class="flex-shrink-0 w-16 h-16 overflow-hidden">
+            <img src={card.img} alt={card.title} width="64" height="64" loading="lazy"
+              class="w-full h-full object-cover" />
+          </div>
+          <div>
+            <h4 class="text-sm font-syne font-bold uppercase tracking-wide mb-1 text-dc-black">{card.title}</h4>
+            <p class="text-xs font-syne text-dc-black opacity-70 leading-relaxed">{card.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

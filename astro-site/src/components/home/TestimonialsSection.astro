@@ -1,0 +1,67 @@
+---
+export interface Props {
+  lang?: 'de' | 'en';
+}
+const { lang = 'de' } = Astro.props;
+
+const testimonials = [
+  {
+    quote: lang === 'de'
+      ? 'Alles im Chi Tribe resoniert mit mir. Der Cosmic Radio Podcast inspiriert mich jedes Mal. Dada, danke für diese Arbeit.'
+      : 'Everything in the Chi Tribe resonates with me. The Cosmic Radio Podcast inspires me every time. Dada, thank you for this work.',
+    author: 'Miu, 24',
+  },
+  {
+    quote: lang === 'de'
+      ? 'Ich bin fassungslos, wie viele kraftvolle Inhalte du zu einem so günstigen Preis anbietest. Ich habe noch nicht mal ein Bruchteil gesehen.'
+      : "I'm blown away by how much powerful content you offer at such a low price. I haven't even reached the end of what's available.",
+    author: 'Deborah, 27',
+  },
+  {
+    quote: lang === 'de'
+      ? 'Nach der letzten Community Reisa bin ich völlig erneuert aufgewacht – als wäre ich wiedergeboren. Danke, Dada.'
+      : 'After the last Community Reisa, I woke up feeling completely renewed — like I had been reborn. Thank you, Dada.',
+    author: 'Sophie, 31',
+  },
+  {
+    quote: lang === 'de'
+      ? 'Die Reisa war unglaublich heilend. Mein ganzer Körper kribbelte, ich fühlte mich gehalten und getragen.'
+      : 'The Reisa was incredibly healing. My whole body tingled, I felt held and supported, and I woke up feeling completely renewed.',
+    author: 'Anna, 29',
+  },
+  {
+    quote: lang === 'de'
+      ? 'Die Session war genau das, was ich brauchte. Ich befinde mich gerade in einem tiefen Loslassungsprozess und fühle mich so viel leichter.'
+      : 'That session was exactly what I needed. I\'m in a deep letting-go process, and I feel so much lighter.',
+    author: 'Laura, 35',
+  },
+  {
+    quote: lang === 'de'
+      ? 'Deine Reisa hat mir geholfen zu sehen, wie ich für mich einstehen kann – ohne Vorwurf und Groll. Ich fühle mich gestärkt.'
+      : "Your Reisa helped me see how to stand up for myself without blame or resentment. I feel empowered to do so now.",
+    author: 'Karin, 42',
+  },
+];
+---
+
+<section class="section-pad bg-dc-black overflow-hidden">
+  <div class="max-w-screen-xl mx-auto">
+    <p class="label-tag text-dc-light mb-12 text-center opacity-60">
+      {lang === 'de' ? 'Stimmen der Klientinnen' : 'Client Voices'}
+    </p>
+
+    <!-- Testimonial grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {testimonials.map(t => (
+        <blockquote class="p-6 border border-dc-white/10 flex flex-col gap-4">
+          <p class="text-dc-light font-syne text-base leading-relaxed opacity-90">
+            "{t.quote}"
+          </p>
+          <footer class="text-xs font-syne-mono text-dc-light opacity-40 uppercase tracking-widest mt-auto">
+            — {t.author}
+          </footer>
+        </blockquote>
+      ))}
+    </div>
+  </div>
+</section>

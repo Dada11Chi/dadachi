@@ -1,0 +1,50 @@
+---
+export interface Props {
+  title?: string;
+  description?: string;
+  lang?: 'de' | 'en';
+  canonicalUrl?: string;
+}
+
+const {
+  title = 'Dada Chi | Shamanic Practitioner & Handpoke Tattoo | Zurich',
+  description = 'Dada Chi – Shamanic Practitioner, Meditation Teacher & Handpoke Tattoo Artist in Zurich.',
+  lang = 'de',
+  canonicalUrl,
+} = Astro.props;
+
+const R2 = 'https://pub-ba018632258942529034e3ab490a6167.r2.dev';
+---
+<!DOCTYPE html>
+<html lang={lang} class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+
+  <!-- Favicons (R2) -->
+  <link rel="icon" type="image/png" media="(prefers-color-scheme: light)"
+    href={`${R2}/2f6dc6f6-7b19-4ddc-ae6f-5115a75c02d2_favicon.ico%EF%B9%96format=100w.png`} />
+  <link rel="icon" type="image/png" media="(prefers-color-scheme: dark)"
+    href={`${R2}/b2214140-42d5-4ff0-aa14-e206351cf20d_favicon.ico%EF%B9%96format=100w.png`} />
+
+  <!-- Google Fonts preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700&family=Syne+Mono:wght@400&family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- Global CSS (Tailwind) -->
+  <link rel="stylesheet" href="/styles/global.css" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="website" />
+</head>
+<body class="font-syne text-dc-black bg-dc-white">
+  <slot />
+</body>
+</html>

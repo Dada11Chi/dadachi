@@ -1,0 +1,106 @@
+---
+export interface Props {
+  lang?: 'de' | 'en';
+}
+const { lang = 'de' } = Astro.props;
+
+const R2 = 'https://pub-ba018632258942529034e3ab490a6167.r2.dev';
+
+const content = {
+  de: {
+    heading: 'Wie ich mit dir arbeite',
+    services: [
+      {
+        title: 'Kraftsymbole',
+        desc: 'Ein Kraftsymbol, das nur dir gehört – aus deiner Energie, für deinen Weg. Zur Meditation, im Alltag oder als Tätowierung.',
+        href: '/de/power-symbols',
+        img: `${R2}/b158adcc-81f1-4df0-8c1a-f25ca22864f4_Symbol-Cosmic-Radio%EF%B9%96format=750w.png`,
+        imgAlt: 'Kraftsymbol',
+        cta: 'Mehr erfahren',
+      },
+      {
+        title: 'Chi Tribe',
+        desc: 'Dein spirituelles Zuhause. Regelmäßige Flow Sessions, Aura-Schule, Schamanische Bibliothek – für CHF 99.– / Monat.',
+        href: '/de/chi-tribe-collection',
+        img: `${R2}/6a08dccd-47aa-481d-b654-12fcfc9fe77b_Symbol-Accompaniment%EF%B9%96format=750w.png`,
+        imgAlt: 'Chi Tribe Symbol',
+        cta: 'Zum Chi Tribe',
+      },
+      {
+        title: 'Tattoo Rituale',
+        desc: 'Dein persönliches Kraftsymbol als Tätowierung – von Hand gesetzt in einem privaten Studio in Zürich, mit ritualem Begleitung.',
+        href: '/de/tattoo-rituals-trainings',
+        img: `${R2}/0a6f02b4-3c85-4d7e-a866-8f6a7df1dc84_Symbol-tattoo%EF%B9%96format=750w.png`,
+        imgAlt: 'Tattoo Ritual',
+        cta: 'Tattoo Ritual buchen',
+      },
+    ],
+  },
+  en: {
+    heading: 'How I Work with you',
+    services: [
+      {
+        title: 'Power Symbols',
+        desc: 'A Power Symbol that belongs only to you – from your energy, for your path. For meditation, everyday life, or as a tattoo.',
+        href: '/en/power-symbols',
+        img: `${R2}/b158adcc-81f1-4df0-8c1a-f25ca22864f4_Symbol-Cosmic-Radio%EF%B9%96format=750w.png`,
+        imgAlt: 'Power Symbol',
+        cta: 'Learn more',
+      },
+      {
+        title: 'Chi Tribe',
+        desc: 'Your spiritual home. Regular Flow Sessions, Aura School, Shamanic library – for CHF 99.– / month.',
+        href: '/en/chi-tribe-collection',
+        img: `${R2}/6a08dccd-47aa-481d-b654-12fcfc9fe77b_Symbol-Accompaniment%EF%B9%96format=750w.png`,
+        imgAlt: 'Chi Tribe Symbol',
+        cta: 'Join Chi Tribe',
+      },
+      {
+        title: 'Tattoo Rituals',
+        desc: 'Your personal Power Symbol as a tattoo – applied by hand in a private studio in Zurich, with ritual accompaniment.',
+        href: '/en/tattoo-rituals-trainings',
+        img: `${R2}/0a6f02b4-3c85-4d7e-a866-8f6a7df1dc84_Symbol-tattoo%EF%B9%96format=750w.png`,
+        imgAlt: 'Tattoo Ritual',
+        cta: 'Book a Tattoo Ritual',
+      },
+    ],
+  },
+};
+const c = content[lang];
+---
+
+<section class="section-pad bg-dc-white">
+  <div class="max-w-screen-xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-syne font-bold mb-16 text-center text-dc-black">
+      {c.heading}
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+      {c.services.map(s => (
+        <div class="flex flex-col gap-5 group">
+          <div class="aspect-square overflow-hidden bg-dc-light">
+            <img
+              src={s.img}
+              alt={s.imgAlt}
+              width="600"
+              height="600"
+              loading="lazy"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+          </div>
+          <div class="flex flex-col gap-3">
+            <h4 class="text-xl font-syne font-bold tracking-wide uppercase text-dc-black">
+              {s.title}
+            </h4>
+            <p class="text-sm font-syne text-dc-black opacity-75 leading-relaxed">
+              {s.desc}
+            </p>
+            <a href={s.href} class="self-start text-xs font-syne-mono uppercase tracking-widest border-b border-dc-black pb-0.5 hover:text-dc-dark hover:border-dc-dark transition-colors mt-2">
+              {s.cta}
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
