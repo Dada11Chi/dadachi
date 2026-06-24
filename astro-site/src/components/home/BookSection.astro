@@ -24,7 +24,9 @@ const content = {
 };
 const c = content[lang];
 
-const bookImg = `/images/book-cover.png`;
+const bookImg = lang === 'de'
+  ? `${R2}/e230e6b0-dc4a-44d4-a115-0e46fc6ef153_Flashbook_Cover_DE%EF%B9%96format=2500w.png`
+  : `${R2}/ea7a156b-1928-4bb4-83af-789775eebf88_Flashbook_Cover_EN%EF%B9%96format=2500w.png`;
 ---
 
 <section class="section-pad bg-dc-white">
