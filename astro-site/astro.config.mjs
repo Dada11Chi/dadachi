@@ -4,7 +4,7 @@ import cloudflare from '@astrojs/cloudflare';
 
 export default defineConfig({
   output: 'static',
-  integrations: [tailwind()],
+  integrations: [tailwind({ applyBaseStyles: false })],
   // adapter: cloudflare(), // Uncomment when deploying to Cloudflare Pages
   i18n: {
     defaultLocale: 'de',
