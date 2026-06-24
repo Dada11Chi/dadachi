@@ -266,6 +266,27 @@ strong { font-weight: 600; }
   justify-content: center;
 }
 
+/* ===== GALLERY REEL ===== */
+.gallery-section { padding: 3vmax 0; overflow: hidden; }
+.gallery-reel {
+  display: flex;
+  gap: 0.75rem;
+  width: max-content;
+  animation: gallery-marquee 50s linear infinite;
+}
+.gallery-reel:hover { animation-play-state: paused; }
+.gallery-reel__item {
+  height: 280px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 2px;
+}
+.gallery-reel__item img { height: 280px; width: auto; object-fit: cover; display: block; }
+@keyframes gallery-marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
 /* ===== HOW I WORK SECTION ===== */
 .how-section { padding: 6vmax 4vw; }
 .how-section__heading { text-align: center; margin-bottom: 4rem; }
