@@ -7,21 +7,21 @@
   <meta name="description" content="Dada Chi – shamanic practitioner in Zurich. Chi Tribe Membership, Handpoke Tattoo Rituals &amp; Power Symbols rooted in sacred geometry.">
   <link rel="icon" type="image/x-icon" href="https://pub-ba018632258942529034e3ab490a6167.r2.dev/2f6dc6f6-7b19-4ddc-ae6f-5115a75c02d2_favicon.ico%EF%B9%96format=100w.png">
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne+Mono:wght@400&family=Amatic+SC:wght@400;700&family=Syne:wght@400;600;700">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne+Mono:wght@400&family=Amatic+SC:wght@400;700&family=Syne:ital,wght@0,400;0,600;0,700">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer">
   <style>
-    /* ===== DESIGN TOKENS ===== */
+    /* ===== TOKENS from versioned CSS ===== */
     :root {
-      --white: hsl(0, 0%, 100%);
-      --light-accent: hsl(30, 20%, 96%);
-      --accent: hsl(262, 39%, 46%);       /* purple #6948A3 */
-      --accent-dark: hsl(262, 39%, 38%);
-      --dark-accent: hsl(346, 60%, 30%);  /* dark red */
-      --black: hsl(200, 9%, 19%);         /* dark warm grey */
-      --body-font: 'Syne', sans-serif;
-      --heading-font: 'Syne', sans-serif;
-      --mono-font: 'Syne Mono', monospace;
-      --display-font: 'Amatic SC', cursive;
+      --white:         hsl(0,0%,100%);
+      --light-accent:  hsl(30,20%,96%);
+      --accent:        hsl(262,39%,46%);   /* #6948A3 purple */
+      --accent-hover:  hsl(262,39%,38%);
+      --dark-accent:   hsl(346,60%,30%);   /* deep red */
+      --black:         hsl(200,9%,19%);    /* dark warm grey */
+      --body-font:     'Syne', sans-serif;
+      --heading-font:  'Syne', sans-serif;
+      --display-font:  'Amatic SC', cursive;
+      --mono-font:     'Syne Mono', monospace;
     }
 
     /* ===== RESET ===== */
@@ -31,247 +31,523 @@
       font-family: var(--body-font);
       color: var(--black);
       background: var(--white);
-      font-size: 1rem;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
     a { color: inherit; text-decoration: none; }
     img { max-width: 100%; height: auto; display: block; }
 
-    /* ===== UTILITY ===== */
+    /* ===== TYPOGRAPHY ===== */
+    h1 {
+      font-family: var(--display-font);
+      font-size: clamp(2.8rem, 7vw, 6rem);
+      line-height: 1.05;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+    }
+    h2 {
+      font-family: var(--heading-font);
+      font-size: clamp(1.4rem, 2.5vw, 2.2rem);
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+    h3 {
+      font-family: var(--heading-font);
+      font-size: clamp(1rem, 1.5vw, 1.25rem);
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    h4 {
+      font-family: var(--heading-font);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    p { line-height: 1.7; }
+    strong { font-weight: 600; }
+
+    /* ===== BUTTONS ===== */
     .btn {
       display: inline-block;
-      padding: 0.6rem 1.5rem;
       font-family: var(--mono-font);
       font-size: 0.85rem;
       letter-spacing: 0.05em;
-      border-radius: 999px;
       cursor: pointer;
-      transition: opacity 0.2s, background 0.2s;
+      transition: opacity 0.2s, background 0.2s, color 0.2s;
+      text-align: center;
     }
-    .btn:hover { opacity: 0.85; }
-    .btn--primary {
+    .btn--solid {
       background: var(--accent);
       color: var(--white);
       border: none;
+      border-radius: 999px;
+      padding: 0.7rem 1.8rem;
     }
+    .btn--solid:hover { opacity: 0.85; }
     .btn--outline {
       background: transparent;
       color: var(--accent);
       border: 1.5px solid var(--accent);
+      border-radius: 999px;
+      padding: 0.65rem 1.75rem;
     }
-    .btn--outline:hover { background: var(--accent); color: var(--white); opacity: 1; }
-    .btn--white {
-      background: var(--white);
-      color: var(--accent);
+    .btn--outline:hover { background: var(--accent); color: var(--white); }
+    .btn--outline-white {
+      background: transparent;
+      color: var(--white);
+      border: 1.5px solid var(--white);
+      border-radius: 999px;
+      padding: 0.65rem 1.75rem;
+    }
+    .btn--outline-white:hover { background: rgba(255,255,255,0.15); }
+    .btn--full { width: 100%; display: block; }
+
+    /* ===== ANNOUNCEMENT BAR ===== */
+    .announcement-bar {
+      background: var(--black);
+      color: var(--white);
+      text-align: center;
+      padding: 0.5rem 2rem;
+      font-family: var(--mono-font);
+      font-size: 0.8rem;
+      letter-spacing: 0.04em;
+      position: relative;
+    }
+    .announcement-bar a { color: var(--white); text-decoration: underline; }
+    .announcement-bar__close {
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
       border: none;
+      color: var(--white);
+      font-size: 1.1rem;
+      cursor: pointer;
+      opacity: 0.6;
     }
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 4vw; }
-    .section { padding: 6vmax 4vw; }
-    .section--dark { background: var(--black); color: var(--white); }
-    .section--light { background: var(--light-accent); }
-    .section--accent { background: var(--accent); color: var(--white); }
-    .text-center { text-align: center; }
 
-    /* ===== TYPOGRAPHY ===== */
-    h1 { font-family: var(--display-font); font-size: clamp(2.5rem, 6vw, 5rem); line-height: 1.1; font-weight: 700; }
-    h2 { font-family: var(--heading-font); font-size: clamp(1.5rem, 3vw, 2.5rem); font-weight: 600; line-height: 1.2; }
-    h3 { font-family: var(--heading-font); font-size: clamp(1.1rem, 2vw, 1.5rem); font-weight: 600; }
-    h4 { font-family: var(--heading-font); font-size: 1rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
-    p { font-size: 1rem; line-height: 1.7; }
-
-    /* ===== HEADER / NAV ===== */
+    /* ===== HEADER ===== */
     .site-header {
       position: sticky;
       top: 0;
       z-index: 1000;
       background: var(--white);
       border-bottom: 1px solid rgba(0,0,0,0.08);
-      padding: 0 4vw;
     }
     .header-inner {
-      max-width: 1200px;
+      max-width: 1500px;
       margin: 0 auto;
+      padding: 0 4vw;
       display: flex;
       align-items: center;
       justify-content: space-between;
       height: 72px;
+      gap: 2rem;
     }
-    .site-logo img { height: 44px; }
-    .main-nav { display: flex; gap: 2rem; align-items: center; }
-    .main-nav a {
+    .site-logo img { height: 46px; width: auto; }
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      list-style: none;
+    }
+    .main-nav > li { position: relative; }
+    .main-nav > li > a,
+    .main-nav > li > button {
       font-family: var(--mono-font);
-      font-size: 0.85rem;
-      letter-spacing: 0.05em;
-      opacity: 0.8;
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+      padding: 0.4rem 0.75rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--black);
+      opacity: 0.75;
       transition: opacity 0.2s;
     }
-    .main-nav a:hover { opacity: 1; }
-    .nav-cta { opacity: 1 !important; }
-    .mobile-menu-toggle {
+    .main-nav > li > a:hover,
+    .main-nav > li > button:hover { opacity: 1; }
+    /* Dropdown */
+    .nav-dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: var(--white);
+      border: 1px solid rgba(0,0,0,0.08);
+      min-width: 200px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      z-index: 100;
+      padding: 0.5rem 0;
+    }
+    .nav-dropdown a {
+      display: block;
+      padding: 0.5rem 1.25rem;
+      font-family: var(--mono-font);
+      font-size: 0.8rem;
+      letter-spacing: 0.03em;
+      opacity: 0.75;
+      transition: opacity 0.15s, background 0.15s;
+    }
+    .nav-dropdown a:hover { opacity: 1; background: var(--light-accent); }
+    .main-nav > li:hover .nav-dropdown { display: block; }
+    .mobile-toggle {
       display: none;
       background: none;
       border: none;
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       cursor: pointer;
       color: var(--black);
     }
 
-    /* ===== HERO SECTION ===== */
-    .hero {
-      min-height: 90vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      gap: 4vw;
-      padding: 6vw 4vw;
-      max-width: 1200px;
+    /* ===== SECTION DEFAULTS ===== */
+    .page-section { position: relative; }
+    .content-wrapper {
+      max-width: 1500px;
       margin: 0 auto;
+      padding: 0 4vw;
     }
-    .hero__text { }
-    .hero__eyebrow {
-      font-family: var(--mono-font);
-      font-size: 0.8rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 1.5rem;
-    }
-    .hero__title { margin-bottom: 1rem; }
-    .hero__subtitle {
-      font-size: clamp(1.1rem, 2vw, 1.4rem);
-      color: var(--dark-accent);
-      font-weight: 400;
-      margin-bottom: 1.5rem;
-    }
-    .hero__body { color: rgba(40,40,40,0.75); margin-bottom: 2rem; font-size: 1.05rem; }
-    .hero__buttons { display: flex; flex-wrap: wrap; gap: 0.75rem; }
-    .hero__image {
+    /* Theme colors */
+    .theme-dark { background: var(--black); color: var(--white); }
+    .theme-light { background: var(--light-accent); color: var(--black); }
+    .theme-bright-inverse { background: var(--white); color: var(--black); }
+    .theme-white { background: var(--white); color: var(--black); }
+    .theme-light-bold { background: var(--light-accent); color: var(--black); }
+
+    /* ===== HERO SECTION ===== */
+    .hero-section {
+      min-height: 100vh;
       position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      padding: 8vmax 4vw 6vmax;
+      color: var(--white);
     }
-    .hero__image img {
-      width: 100%;
-      border-radius: 2px;
-      object-fit: cover;
-    }
-    .hero__bg-image {
+    .hero-section__bg {
       position: absolute;
       inset: 0;
       background-image: url('https://pub-ba018632258942529034e3ab490a6167.r2.dev/d747ec00-d28c-43e5-aca7-30031d0940a1_beautiful-feathers-arrangement%EF%B9%96format=2500w.jpg');
       background-size: cover;
       background-position: center;
-      opacity: 0.08;
-      z-index: -1;
+      z-index: 0;
+    }
+    .hero-section__bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(30, 20, 10, 0.45);
+    }
+    .hero-section__content {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+    }
+    .hero-section__logo-mark {
+      margin: 0 auto 1.5rem;
+      width: min(280px, 50vw);
+    }
+    .hero-section__heading {
+      margin-bottom: 0.5rem;
+      color: var(--white);
+    }
+    .hero-section__sub {
+      font-family: var(--mono-font);
+      font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+      letter-spacing: 0.06em;
+      margin-bottom: 1.25rem;
+      opacity: 0.9;
+    }
+    .hero-section__body {
+      font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+      opacity: 0.9;
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
+    }
+    .hero-section__buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
     }
 
-    /* ===== HOW I WORK (3 cards) ===== */
-    .services-grid {
+    /* ===== HOW I WORK SECTION ===== */
+    .how-section {
+      padding: 6vmax 4vw;
+    }
+    .how-section__heading {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .how-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-    .service-card {
-      padding: 2rem;
-      background: var(--light-accent);
-      border-radius: 4px;
-    }
-    .service-card h4 { color: var(--accent); margin-bottom: 0.75rem; }
-    .service-card p { font-size: 0.95rem; margin-bottom: 1.5rem; opacity: 0.8; }
-
-    /* ===== CHI TRIBE FEATURE SECTION ===== */
-    .chi-tribe-section {
-      background: var(--black);
-      color: var(--white);
-      padding: 7vmax 4vw;
-    }
-    .chi-tribe-inner {
+      gap: 2.5rem;
       max-width: 1200px;
       margin: 0 auto;
+    }
+    .how-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      border: 1px solid rgba(0,0,0,0.1);
+      border-radius: 4px;
+      padding: 2.5rem 2rem;
+      gap: 1rem;
+    }
+    .how-card__icon {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: var(--light-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 1rem;
+    }
+    .how-card__icon img { width: 80px; height: 80px; object-fit: contain; }
+    .how-card h4 { color: var(--black); }
+    .how-card p { font-size: 0.95rem; opacity: 0.75; flex: 1; }
+
+    /* ===== CHI TRIBE SECTION ===== */
+    .chitribe-section {
+      padding: 6vmax 4vw;
+    }
+    .chitribe-section__inner {
+      max-width: 1000px;
+      margin: 0 auto;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1.4fr;
       gap: 5vw;
       align-items: center;
     }
-    .chi-tribe-inner img {
-      border-radius: 4px;
-      width: 100%;
-      object-fit: cover;
-      max-height: 600px;
+    .chitribe-section__logo {
+      width: min(280px, 100%);
+      margin: 0 auto;
     }
-    .chi-tribe-text h2 { margin-bottom: 1.5rem; }
-    .chi-tribe-text p { opacity: 0.85; margin-bottom: 1rem; }
-    .chi-tribe-bullets { list-style: none; margin: 1.5rem 0; }
-    .chi-tribe-bullets li {
-      padding: 0.5rem 0;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
+    .chitribe-section__text h1 {
+      font-size: clamp(2.2rem, 5vw, 4.5rem);
+      margin-bottom: 0.25rem;
+    }
+    .chitribe-section__text h1 span { color: var(--dark-accent); }
+    .chitribe-section__text p {
+      margin: 1rem 0;
       font-size: 0.95rem;
-      opacity: 0.85;
     }
-    .chi-tribe-bullets li::before { content: "✦ "; color: var(--accent); }
+    .chitribe-section__bullets {
+      margin: 1.5rem 0;
+    }
+    .chitribe-section__bullets h3 {
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .chitribe-section__pricing {
+      font-family: var(--mono-font);
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+      margin: 1rem 0;
+      opacity: 0.7;
+    }
 
     /* ===== FOR YOU IF ===== */
-    .for-you-grid {
+    .foryou-section {
+      padding: 6vmax 4vw;
+    }
+    .foryou-section h3 {
+      text-align: center;
+      font-size: clamp(1.1rem, 2vw, 1.6rem);
+      margin-bottom: 3rem;
+    }
+    .foryou-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 1.5rem;
-      margin-top: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
     }
-    .for-you-item {
-      padding: 1.5rem;
-      border: 1px solid rgba(105, 72, 163, 0.25);
+    .foryou-item {
+      padding: 1.5rem 2rem;
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 4px;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      opacity: 0.85;
+    }
+
+    /* ===== WHAT HAPPENS / APPROACH ===== */
+    .approach-section {
+      padding: 6vmax 4vw;
+    }
+    .approach-section__inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .approach-section h3 {
+      text-align: center;
+      font-size: clamp(1.1rem, 2vw, 1.5rem);
+      margin-bottom: 2rem;
+    }
+    .approach-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 2.5rem;
+    }
+    .approach-list li {
+      padding: 0.75rem 1.25rem;
+      background: rgba(0,0,0,0.03);
+      border-radius: 4px;
+      font-size: 0.95rem;
+    }
+    .approach-list li::before { content: "✦  "; color: var(--accent); }
+    .approach-quote {
+      font-style: italic;
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 2.5rem;
+      font-size: 1rem;
+      opacity: 0.8;
+      line-height: 1.8;
+    }
+
+    /* ===== MEMBERSHIP FEATURES (dark) ===== */
+    .membership-section {
+      padding: 6vmax 4vw;
+    }
+    .membership-section__header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .membership-section__header h3 {
+      font-size: clamp(1rem, 1.8vw, 1.4rem);
+      opacity: 0.85;
+      margin-top: 0.75rem;
+      font-weight: 400;
+    }
+    .membership-features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .membership-feature {
+      padding: 2rem;
+      border: 1px solid rgba(255,255,255,0.12);
       border-radius: 4px;
     }
-    .for-you-item p { font-size: 0.95rem; opacity: 0.85; }
+    .membership-feature h4 {
+      color: var(--white);
+      margin-bottom: 0.75rem;
+      font-size: 0.85rem;
+    }
+    .membership-feature p { font-size: 0.9rem; opacity: 0.75; }
 
-    /* ===== TESTIMONIALS ===== */
-    .testimonials-section { background: var(--light-accent); }
-    .testimonials-grid {
+    /* ===== AURA APP SECTION (dark) ===== */
+    .aura-section {
+      padding: 6vmax 4vw;
+    }
+    .aura-section__inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 4vw;
+      align-items: center;
+    }
+    .aura-section__gif {
+      width: min(180px, 35vw);
+    }
+    .aura-section__text h2 { margin-bottom: 1rem; }
+    .aura-section__text p { opacity: 0.85; margin-bottom: 1.25rem; font-size: 0.95rem; }
+
+    /* ===== BOOK SECTION (light) ===== */
+    .book-section {
+      padding: 6vmax 4vw;
+    }
+    .book-section__inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 5vw;
+      align-items: center;
+    }
+    .book-section__cover img {
+      border-radius: 4px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    }
+    .book-section__text h2 { margin-bottom: 1rem; }
+    .book-section__price {
+      font-family: var(--mono-font);
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    .book-section__text p { font-size: 0.95rem; opacity: 0.8; margin-bottom: 1rem; }
+
+    /* ===== TESTIMONIALS (white) ===== */
+    .testimonials-section {
+      padding: 6vmax 4vw;
+    }
+    .testimonials-section__heading {
+      text-align: center;
+      margin-bottom: 3rem;
+      font-size: 0.8rem;
+      font-family: var(--mono-font);
+      letter-spacing: 0.12em;
+      opacity: 0.5;
+    }
+    .testimonials-track {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
-      margin-top: 2.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
     }
     .testimonial {
-      background: var(--white);
-      padding: 1.5rem;
+      padding: 1.75rem;
+      border: 1px solid rgba(0,0,0,0.08);
       border-radius: 4px;
     }
     .testimonial blockquote {
-      font-size: 0.95rem;
-      line-height: 1.6;
-      opacity: 0.85;
+      font-size: 0.9rem;
+      line-height: 1.7;
       margin-bottom: 1rem;
+      opacity: 0.8;
+      font-style: italic;
     }
     .testimonial cite {
       font-family: var(--mono-font);
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: var(--accent);
       font-style: normal;
     }
 
-    /* ===== BOOK / AURA APP ===== */
-    .aura-section {
-      padding: 7vmax 4vw;
-      background: var(--accent);
-      color: var(--white);
-    }
-    .aura-inner {
-      max-width: 900px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    .aura-inner h2 { margin-bottom: 1rem; }
-    .aura-inner p { opacity: 0.9; margin-bottom: 2rem; font-size: 1.05rem; }
-
-    /* ===== NEWSLETTER ===== */
+    /* ===== NEWSLETTER (light-bold) ===== */
     .newsletter-section {
-      padding: 5vmax 4vw;
+      padding: 6vmax 4vw;
       text-align: center;
-      background: var(--white);
     }
-    .newsletter-section h2 { margin-bottom: 0.75rem; }
-    .newsletter-section p { opacity: 0.7; margin-bottom: 2rem; max-width: 540px; margin-left: auto; margin-right: auto; }
+    .newsletter-section h2 { margin-bottom: 1rem; }
+    .newsletter-section p {
+      max-width: 540px;
+      margin: 0 auto 2rem;
+      font-size: 0.95rem;
+      opacity: 0.8;
+    }
     .newsletter-form {
       display: flex;
       gap: 0.5rem;
@@ -281,40 +557,56 @@
     }
     .newsletter-form input {
       flex: 1;
-      padding: 0.65rem 1rem;
-      border: 1.5px solid var(--accent);
+      padding: 0.7rem 1.2rem;
+      border: 1.5px solid rgba(0,0,0,0.2);
       border-radius: 999px;
       font-family: var(--body-font);
       font-size: 0.9rem;
+      background: var(--white);
       outline: none;
     }
-    .newsletter-form input:focus { border-color: var(--dark-accent); }
+    .newsletter-form input:focus { border-color: var(--accent); }
 
     /* ===== FOOTER ===== */
     .site-footer {
       background: var(--black);
       color: var(--white);
-      padding: 4vw;
+      padding: 4vmax 4vw 3vmax;
       text-align: center;
     }
-    .footer-links {
+    .footer-social {
       display: flex;
       justify-content: center;
-      gap: 2rem;
-      flex-wrap: wrap;
-      margin-bottom: 1.5rem;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
     }
-    .footer-links a {
-      font-family: var(--mono-font);
-      font-size: 0.8rem;
-      opacity: 0.6;
-      letter-spacing: 0.05em;
+    .footer-social a {
+      font-size: 1.3rem;
+      opacity: 0.5;
+      transition: opacity 0.2s;
     }
-    .footer-links a:hover { opacity: 1; }
-    .footer-social { display: flex; justify-content: center; gap: 1.25rem; margin-bottom: 1.5rem; }
-    .footer-social a { font-size: 1.2rem; opacity: 0.6; }
     .footer-social a:hover { opacity: 1; }
-    .footer-copy { font-size: 0.75rem; opacity: 0.4; font-family: var(--mono-font); }
+    .footer-nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.5rem 2rem;
+      margin-bottom: 2rem;
+    }
+    .footer-nav a {
+      font-family: var(--mono-font);
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+      opacity: 0.45;
+      transition: opacity 0.2s;
+    }
+    .footer-nav a:hover { opacity: 0.9; }
+    .footer-copy {
+      font-family: var(--mono-font);
+      font-size: 0.72rem;
+      opacity: 0.3;
+      letter-spacing: 0.04em;
+    }
 
     /* ===== FLOATING BUTTONS ===== */
     .floating-buttons {
@@ -323,26 +615,25 @@
       right: 0;
       z-index: 9999;
       display: flex;
-      gap: 12px;
       align-items: center;
-      flex-direction: row;
+      gap: 8px;
     }
-    #whatsapp-button a {
+    .floating-wa {
       display: flex;
       align-items: center;
+      gap: 10px;
       background: var(--accent);
+      color: var(--white);
       border-radius: 999px;
-      box-shadow: -2px 0 8px rgba(0,0,0,0.15);
-      color: white;
-      font-size: 16px;
-      text-decoration: none;
-      transition: background 0.3s;
-      padding: 0 12px;
+      padding: 0 14px;
       height: 48px;
-      gap: 12px;
+      font-family: var(--mono-font);
+      font-size: 0.85rem;
+      box-shadow: -2px 0 12px rgba(0,0,0,0.15);
+      transition: background 0.2s;
     }
-    #whatsapp-button a:hover { background: var(--accent-dark); }
-    .lang-button {
+    .floating-wa:hover { background: var(--accent-hover); }
+    .floating-lang {
       background: var(--white);
       border: 1.5px solid var(--accent);
       color: var(--accent);
@@ -357,177 +648,300 @@
       cursor: pointer;
       transition: background 0.2s;
     }
-    .lang-button:hover { background: var(--light-accent); }
+    .floating-lang:hover { background: var(--light-accent); }
+
+    /* ===== MOBILE MENU ===== */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--white);
+      z-index: 2000;
+      flex-direction: column;
+      padding: 6rem 4vw 4vw;
+      gap: 0.5rem;
+    }
+    .mobile-nav.is-open { display: flex; }
+    .mobile-nav__close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+    .mobile-nav a {
+      font-family: var(--mono-font);
+      font-size: 1.1rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+      opacity: 0.8;
+    }
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 900px) {
-      .hero { grid-template-columns: 1fr; text-align: center; }
-      .hero__buttons { justify-content: center; }
-      .hero__image { order: -1; max-width: 380px; margin: 0 auto; }
-      .services-grid { grid-template-columns: 1fr; }
-      .chi-tribe-inner { grid-template-columns: 1fr; }
-      .for-you-grid { grid-template-columns: 1fr; }
-      .testimonials-grid { grid-template-columns: 1fr; }
       .main-nav { display: none; }
-      .mobile-menu-toggle { display: block; }
+      .mobile-toggle { display: block; }
+      .how-grid { grid-template-columns: 1fr; }
+      .chitribe-section__inner { grid-template-columns: 1fr; text-align: center; }
+      .foryou-grid { grid-template-columns: 1fr; }
+      .membership-features { grid-template-columns: 1fr; }
+      .aura-section__inner { grid-template-columns: 1fr; text-align: center; }
+      .aura-section__gif { margin: 0 auto; }
+      .book-section__inner { grid-template-columns: 1fr; }
+      .testimonials-track { grid-template-columns: 1fr; }
     }
     @media (max-width: 600px) {
       .newsletter-form { flex-direction: column; }
+      .hero-section__buttons { flex-direction: column; align-items: center; }
     }
   </style>
 </head>
 <body>
 
+<!-- ANNOUNCEMENT BAR -->
+<div class="announcement-bar" id="announcementBar">
+  🎁 <a href="https://tally.so/r/w4WBJA" target="_blank" rel="noopener">Gift Certificates available here</a>
+  &nbsp;|&nbsp;
+  🎁 <a href="https://tally.so/r/w4WBJA" target="_blank" rel="noopener">Hier gibt's Geschenkgutscheine</a>
+  <button class="announcement-bar__close" onclick="document.getElementById('announcementBar').style.display='none'" aria-label="Close">×</button>
+</div>
+
 <!-- HEADER -->
 <header class="site-header">
   <div class="header-inner">
     <a href="/" class="site-logo">
-      <img src="https://pub-ba018632258942529034e3ab490a6167.r2.dev/adbb76e3-8361-4f10-82ea-3e5d7da38d94_Logo_Dada_Chi-2%EF%B9%96format=1500w.png" alt="DADA CHI">
+      <img src="https://pub-ba018632258942529034e3ab490a6167.r2.dev/adbb76e3-8361-4f10-82ea-3e5d7da38d94_Logo_Dada_Chi-2%EF%B9%96format=1500w.png" alt="DADA CHI" height="46">
     </a>
-    <nav class="main-nav">
-      <a href="/en/power-symbols">Power Symbols</a>
-      <a href="/en/tattoo-rituals-trainings">Tattoo Rituals</a>
-      <a href="/en/chi-tribe/overview">Chi Tribe</a>
-      <a href="/en/resources">Resources</a>
-      <a href="/become-member" class="btn btn--primary nav-cta">Join Chi Tribe</a>
+    <nav>
+      <ul class="main-nav">
+        <li>
+          <button>Offer ▾</button>
+          <div class="nav-dropdown">
+            <a href="https://dadachi.com/en/power-symbols">Power Symbols</a>
+            <a href="https://dadachi.com/en/tattoo-rituals-trainings">Tattoo Rituals</a>
+            <a href="https://dadachi.com/en/books">Books</a>
+          </div>
+        </li>
+        <li>
+          <button>Chi Tribe ▾</button>
+          <div class="nav-dropdown">
+            <a href="https://dadachi.com/en/chi-tribe/overview">Overview</a>
+            <a href="https://dadachi.com/en/chi-tribe/flow-sessions">Sessions &amp; Journeys</a>
+            <a href="https://dadachi.com/en/chi-tribe/rituals">Rituals</a>
+            <a href="https://dadachi.com/en/chi-tribe/aura-school">Aura School</a>
+            <a href="https://dadachi.com/en/chi-tribe/e-books">E-Books</a>
+            <a href="https://dadachi.com/en/chi-tribe/runes">Runes</a>
+            <a href="https://dadachi.com/en/chi-tribe/tree-horoscope">Tree Astrology</a>
+            <a href="https://dadachi.com/en/chi-tribe/crystals">Crystal Wisdom</a>
+            <a href="https://dadachi.com/en/chi-tribe/chants-practices">Chants &amp; Practices</a>
+          </div>
+        </li>
+        <li>
+          <button>Resources ▾</button>
+          <div class="nav-dropdown">
+            <a href="https://dadachi.com/podcast">Podcast</a>
+            <a href="https://dadachi.com/gnothi-seauton-web-app">Gnothi Seauton App</a>
+          </div>
+        </li>
+        <li><a href="/become-member" class="btn btn--solid" style="padding:0.45rem 1.2rem;font-size:0.78rem;">Become Member</a></li>
+      </ul>
     </nav>
-    <button class="mobile-menu-toggle" aria-label="Menu">&#9776;</button>
+    <button class="mobile-toggle" onclick="document.getElementById('mobileNav').classList.add('is-open')" aria-label="Menu">☰</button>
   </div>
 </header>
 
-<!-- HERO -->
+<!-- MOBILE NAV -->
+<nav class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav__close" onclick="document.getElementById('mobileNav').classList.remove('is-open')" aria-label="Close">×</button>
+  <a href="https://dadachi.com/en/power-symbols">Power Symbols</a>
+  <a href="https://dadachi.com/en/tattoo-rituals-trainings">Tattoo Rituals</a>
+  <a href="https://dadachi.com/en/books">Books</a>
+  <a href="https://dadachi.com/en/chi-tribe/overview">Chi Tribe</a>
+  <a href="https://dadachi.com/en/chi-tribe/flow-sessions">Sessions &amp; Journeys</a>
+  <a href="https://dadachi.com/en/chi-tribe/aura-school">Aura School</a>
+  <a href="https://dadachi.com/podcast">Podcast</a>
+  <a href="/become-member" class="btn btn--solid" style="margin-top:1rem;text-align:center;">Become Member</a>
+</nav>
+
 <main>
-<section style="position:relative; overflow:hidden;">
-  <div class="hero__bg-image"></div>
-  <div class="hero">
-    <div class="hero__text">
-      <p class="hero__eyebrow">Shamanic Practitioner · Zurich</p>
-      <h1 class="hero__title">Connection of self and soul</h1>
-      <p class="hero__subtitle">You just need the right space.</p>
-      <p class="hero__body">You feel more deeply than the world understands.<br>
-      As a shamanic practitioner and meditation teacher,<br>
-      I hold a space where you can simply be yourself.</p>
-      <div class="hero__buttons">
-        <a href="/become-member" class="btn btn--primary">Join the Chi Tribe</a>
-        <a href="/en/power-symbols" class="btn btn--outline">Order Power Symbol</a>
-        <a href="/en/tattoo-rituals-trainings" class="btn btn--outline">Book Tattoo Ritual</a>
-      </div>
+
+<!-- SECTION 1: HERO (dark, feathers background) -->
+<section class="page-section hero-section">
+  <div class="hero-section__bg"></div>
+  <div class="hero-section__content">
+    <div class="hero-section__logo-mark">
+      <img src="https://pub-ba018632258942529034e3ab490a6167.r2.dev/0fd5e3db-1d1b-4b37-b7e6-9aa70e350a3f_Dada_illustration_smiling_white%EF%B9%96format=2500w.png" alt="Dada Chi illustration">
     </div>
-    <div class="hero__image">
-      <img src="https://pub-ba018632258942529034e3ab490a6167.r2.dev/0fd5e3db-1d1b-4b37-b7e6-9aa70e350a3f_Dada_illustration_smiling_white%EF%B9%96format=2500w.png"
-           alt="Dada Chi – Shamanic Practitioner"
-           loading="eager">
+    <h2 class="hero-section__heading">Connection of self and soul</h2>
+    <p class="hero-section__sub">You feel more deeply than the world understands.</p>
+    <p class="hero-section__body">
+      As a shamanic practitioner and meditation teacher,<br>
+      I hold a space where you can simply be yourself.
+    </p>
+    <div class="hero-section__buttons">
+      <a href="/become-member" class="btn btn--solid">Join the Chi Tribe</a>
+      <a href="https://tally.so/r/wo14zX" class="btn btn--outline-white">Order Power Symbol</a>
+      <a href="https://dadachi.com/en/tattoo-rituals-trainings" class="btn btn--outline-white">Book Tattoo Ritual</a>
     </div>
   </div>
 </section>
 
-<!-- HOW I WORK -->
-<section class="section">
-  <div class="container">
-    <h2>How I Work with You</h2>
-    <div class="services-grid">
-      <div class="service-card">
+<!-- SECTION 2: HOW I WORK (bright-inverse, white bg) -->
+<section class="page-section theme-bright-inverse how-section">
+  <div class="content-wrapper">
+    <h2 class="how-section__heading">How I Work with You</h2>
+    <div class="how-grid">
+      <div class="how-card">
+        <div class="how-card__icon">
+          <img src="https://pub-ba018632258942529034e3ab490a6167.r2.dev/b158adcc-81f1-4df0-8c1a-f25ca22864f4_Symbol-Cosmic-Radio%EF%B9%96format=2500w.png" alt="Power Symbols">
+        </div>
         <h4>Power Symbols</h4>
         <p>A Power Symbol that belongs only to you – from your energy, for your path. For meditation, everyday life, or as a tattoo on your skin.</p>
-        <a href="/en/power-symbols" class="btn btn--primary">Order Power Symbol now</a>
+        <a href="https://tally.so/r/wo14zX" class="btn btn--solid">Order Power Symbol now</a>
       </div>
-      <div class="service-card">
+      <div class="how-card">
+        <div class="how-card__icon">
+          <img src="https://pub-ba018632258942529034e3ab490a6167.r2.dev/6a08dccd-47aa-481d-b654-12fcfc9fe77b_Symbol-Accompaniment%EF%B9%96format=2500w.png" alt="Chi Tribe">
+        </div>
         <h4>Chi Tribe</h4>
         <p>Your spiritual home. Regular Flow Sessions, Aura School, Shamanic library – for CHF 99.– / month.</p>
-        <a href="/become-member" class="btn btn--primary">Join the Chi Tribe today</a>
+        <a href="/become-member" class="btn btn--solid">Join the Chi Tribe today</a>
       </div>
-      <div class="service-card">
+      <div class="how-card">
+        <div class="how-card__icon">
+          <img src="https://pub-ba018632258942529034e3ab490a6167.r2.dev/0a6f02b4-3c85-4d7e-a866-8f6a7df1dc84_Symbol-tattoo%EF%B9%96format=2500w.png" alt="Tattoo Rituals">
+        </div>
         <h4>Tattoo Rituals</h4>
         <p>Your personal Power Symbol as a tattoo – applied by hand in a private studio in Zurich, with ritual accompaniment. An experience that lasts.</p>
-        <a href="/en/tattoo-rituals-trainings" class="btn btn--primary">Book Tattoo Ritual now</a>
+        <a href="https://dadachi.com/en/tattoo-rituals-trainings" class="btn btn--solid">Book Tattoo Ritual now</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CHI TRIBE DEEP DIVE -->
-<section class="chi-tribe-section">
-  <div class="chi-tribe-inner">
-    <img src="https://pub-ba018632258942529034e3ab490a6167.r2.dev/89794cf0-51d1-4bc2-8b72-822a6e34efac_Dada_illustration_red%EF%B9%96format=2500w.png"
-         alt="Chi Tribe – Spiritual Community">
-    <div class="chi-tribe-text">
-      <h2>You are not too much.</h2>
-      <p>The Chi Tribe is a vibrant space for people who feel deeply – and are looking for a place where they can simply be themselves. Here you'll find shamanic practice that regulates rather than overwhelms.</p>
-      <p>As a member, you'll benefit from regular Flow Sessions, the world's first Aura School, monthly shamanic journeys, a shamanic library, and an active Telegram group.</p>
-      <p><strong>For CHF 99 per month. Cancel anytime.</strong></p>
-      <ul class="chi-tribe-bullets">
-        <li>Flow Sessions and Shamanic Journeys</li>
-        <li>The first Aura School on Earth</li>
-        <li>Shamanic Library: Chants, Runes, Crystal Wisdom, E-Books</li>
-        <li>Active community – no performance, just presence</li>
-      </ul>
-      <div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:1.5rem;">
-        <a href="/become-member" class="btn btn--white">Become Member</a>
-        <a href="/en/chi-tribe/overview" class="btn btn--outline" style="color:#fff;border-color:#fff;">Learn more</a>
+<!-- SECTION 3: CHI TRIBE (light, "You are not too much") -->
+<section class="page-section theme-light chitribe-section">
+  <div class="content-wrapper">
+    <div class="chitribe-section__inner">
+      <div class="chitribe-section__logo">
+        <img src="https://pub-ba018632258942529034e3ab490a6167.r2.dev/426f145d-582c-4353-83a9-a1568586012b_Chi_Tribe_Logo%EF%B9%96format=2500w.png" alt="Chi Tribe Logo">
+      </div>
+      <div class="chitribe-section__text">
+        <h1>You are not too much.<br><span>You just need the right space.</span></h1>
+        <p>The Chi Tribe is a vibrant space for people who feel deeply – and are looking for a place where they can simply be themselves. Here you'll find shamanic practice that regulates rather than overwhelms, and a community that truly supports you.</p>
+        <p>As a member, you'll benefit from regular Flow Sessions, the world's first Aura School, monthly shamanic journeys, a shamanic library, and an active Telegram group.</p>
+        <p class="chitribe-section__pricing">For CHF 99 per month. Cancel anytime.</p>
+        <div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:1.5rem;">
+          <a href="/become-member" class="btn btn--solid">Become Member</a>
+          <a href="https://dadachi.com/en/chi-tribe/overview" class="btn btn--outline">Learn more</a>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- THE CHI TRIBE IS FOR YOU IF -->
-<section class="section section--light">
-  <div class="container">
-    <h2>the Chi Tribe is for You, if…</h2>
-    <div class="for-you-grid">
-      <div class="for-you-item">
-        <p>... you want to place spirituality and energy at the centre of your life – and keep failing because the outside is too loud and the inner anchor too quiet.</p>
+<!-- SECTION 3b: FOR YOU IF -->
+<section class="page-section theme-light foryou-section" style="padding-top:0;">
+  <div class="content-wrapper">
+    <h3>the Chi Tribe is for You, if…</h3>
+    <div class="foryou-grid">
+      <div class="foryou-item">... you want to place spirituality and energy at the centre of your life – and keep failing because the outside is too loud and the inner anchor too quiet.</div>
+      <div class="foryou-item">... you are tired of spiritual offerings that promise to transform you – and are simply looking for a real space to practice.</div>
+      <div class="foryou-item">... you know that stillness changes more than any concept. And you need a rhythm that brings you back to yourself, week after week.</div>
+      <div class="foryou-item">... you want community that doesn't perform. That simply is.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3c: WHAT HAPPENS / APPROACH -->
+<section class="page-section theme-light approach-section" style="padding-top:2rem;">
+  <div class="approach-section__inner">
+    <h3>What happens in the Chi Tribe</h3>
+    <ul class="approach-list">
+      <li>Working with Body, Energy, and Perception</li>
+      <li>Clarifying Connections, Boundaries, and Inner Images</li>
+      <li>The weekly sessions are calm, deep, and empowering.</li>
+    </ul>
+    <h3>My approach</h3>
+    <p class="approach-quote">I don't work to repair, but to remember. Not authoritarian, but to provide structure. Not to accelerate, but to regulate. Not above you, but with you.</p>
+  </div>
+</section>
+
+<!-- SECTION 4: MEMBERSHIP FEATURES (dark) -->
+<section class="page-section theme-dark membership-section">
+  <div class="content-wrapper">
+    <div class="membership-section__header">
+      <h2>Chi Tribe – For CHF 99.– / Month<br>You'll get:</h2>
+    </div>
+    <div class="membership-features">
+      <div class="membership-feature">
+        <h4>Flow Sessions &amp; Shamanic Journeys</h4>
+        <p>Daily life pulls. The connection fades. The Chi Tribe gives you a steady rhythm – regular impulses and a monthly shamanic journey that bring you back to yourself, again and again. Not as an obligation, but as an anchor.</p>
       </div>
-      <div class="for-you-item">
-        <p>... you are tired of spiritual offerings that promise to transform you – and are simply looking for a real space to practice.</p>
+      <div class="membership-feature">
+        <h4>The First Aura School on Earth</h4>
+        <p>Seven levels of shamanic self-knowledge – developed exclusively for the Chi Tribe. You learn to recognize what truly belongs to you, release old patterns, and build a clear connection to your own energy. Your pace. Your path.</p>
       </div>
-      <div class="for-you-item">
-        <p>... you know that stillness changes more than any concept. And you need a rhythm that brings you back to yourself, week after week.</p>
+      <div class="membership-feature">
+        <h4>Shamanic Library</h4>
+        <p>Chants, Runes, Crystal wisdom, Chakra meditations, E-books – a living collection of spiritual knowledge that accompanies you. There when you want it. No program, no pressure. Simply there.</p>
       </div>
-      <div class="for-you-item">
-        <p>... you want community that doesn't perform. That simply is.</p>
+    </div>
+    <div style="text-align:center;margin-top:3rem;">
+      <a href="/become-member" class="btn btn--outline-white">Become Member</a>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5: AURA APP (dark) -->
+<section class="page-section theme-dark aura-section">
+  <div class="content-wrapper">
+    <div class="aura-section__inner">
+      <div class="aura-section__gif">
+        <img src="https://pub-ba018632258942529034e3ab490a6167.r2.dev/88ca9009-acde-48b9-9a04-6ae92f049006_Djeli+GIF%EF%B9%96format=2500w.gif" alt="Djeli – Aura Guide">
+      </div>
+      <div class="aura-section__text">
+        <h2>Meet your Aura</h2>
+        <p>This little fellow is Djeli – the shaman of the Gnothi Seauton Web App. He guides you for free through five steps: Hara, Body, Emotions, Thoughts, Visions.</p>
+        <p>No course, no sign-up – just try it.</p>
+        <a href="/gnothi-seauton-web-app" class="btn btn--outline-white">Start free Aura journey</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- AURA APP -->
-<section class="aura-section">
-  <div class="aura-inner">
-    <h2>Meet your Aura</h2>
-    <p>This little fellow is Djeli – the shaman of the Gnothi Seauton Web App. He guides you for free through five steps: Hara, Body, Emotions, Thoughts, Visions.</p>
-    <p>No course, no sign-up – just try it.</p>
-    <a href="/gnothi-seauton-web-app" class="btn btn--white">Start free Aura journey</a>
-  </div>
-</section>
-
-<!-- BOOK -->
-<section class="section">
-  <div class="container" style="display:grid;grid-template-columns:1fr 1fr;gap:4vw;align-items:center;max-width:900px;">
-    <div>
-      <img src="https://pub-ba018632258942529034e3ab490a6167.r2.dev/471eb76d-2255-4fe8-9f01-45ace5693da4_Menschsein-1-EN%EF%B9%96format=1500w.png"
-           alt="Being Human – A Travel Guide eBook"
-           style="border-radius:4px;">
-    </div>
-    <div>
-      <h2>Or let my book be your companion.</h2>
-      <p style="font-size:0.8rem;color:var(--accent);font-family:var(--mono-font);margin:0.5rem 0;">CHF 22.00</p>
-      <p style="margin:1rem 0;">In "Being Human – A Travel Guide," I show you the shamanic perspective on the world. What is "God"? What is the Otherworld? What is a human being – and what is their purpose?</p>
-      <a href="/en/books" class="btn btn--primary" style="margin-top:0.5rem;">Buy Book now</a>
+<!-- SECTION 6: BOOK (light) -->
+<section class="page-section theme-light book-section">
+  <div class="content-wrapper">
+    <div class="book-section__inner">
+      <div class="book-section__cover">
+        <img src="https://pub-ba018632258942529034e3ab490a6167.r2.dev/471eb76d-2255-4fe8-9f01-45ace5693da4_Menschsein-1-EN%EF%B9%96format=1500w.png" alt="Being Human – A Travel Guide eBook">
+      </div>
+      <div class="book-section__text">
+        <h2>Or let my book be your companion.</h2>
+        <p class="book-section__price">CHF 22.00</p>
+        <p>In "Being Human – A Travel Guide," I show you the shamanic perspective on the world. What is "God"? What is the Otherworld or the Afterlife? What is a human being? And what is their purpose? Why is life on Earth so painful at the moment? And how can humans deal with this pain in the most constructive way?</p>
+        <p>What does the Aura consist of, and how does it work? What is the place of humans in the great web of life? Accompany the shaman Djeli and his granddaughter Elea on a journey through the metaphysical planes of human existence.</p>
+        <p>In addition to many philosophical and spiritual explanations, "Being Human" contains instructions for the practice of loving self-reflection.</p>
+        <a href="https://dadachi.com/en/books" class="btn btn--solid" style="margin-top:1rem;">Buy Book now</a>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section class="section testimonials-section">
-  <div class="container">
-    <h2 class="text-center">Client Voices</h2>
-    <div class="testimonials-grid">
+<!-- SECTION 7: TESTIMONIALS (white) -->
+<section class="page-section theme-white testimonials-section">
+  <div class="content-wrapper">
+    <p class="testimonials-section__heading">CLIENT VOICES</p>
+    <div class="testimonials-track">
       <div class="testimonial">
         <blockquote>"Everything in the Chi Tribe resonates with me. The Cosmic Radio Podcast inspires me every time. Dada, your care and dedication shine through."</blockquote>
         <cite>Miu, 24</cite>
       </div>
       <div class="testimonial">
-        <blockquote>"I'm blown away by how much powerful content you offer at such a low price. Dada, your work is a true gift."</blockquote>
+        <blockquote>"I'm blown away by how much powerful content you offer at such a low price. I haven't even reached the Reisas yet — still integrating the video practices. Dada, your work is a true gift."</blockquote>
         <cite>Deborah, 27</cite>
       </div>
       <div class="testimonial">
@@ -535,61 +949,67 @@
         <cite>Manuela, 40</cite>
       </div>
       <div class="testimonial">
-        <blockquote>"The Reisa was incredibly healing. My whole body tingled, I felt held and supported, and I woke up filled with fresh energy."</blockquote>
+        <blockquote>"The Reisa was incredibly healing. My whole body tingled, I felt held and supported, and I woke up filled with fresh energy. Thank you, thank you, thank you!"</blockquote>
         <cite>Deborah, 28</cite>
       </div>
       <div class="testimonial">
-        <blockquote>"Your Reisa helped me see how to stand up for myself without blame or resentment. I feel empowered to move forward."</blockquote>
+        <blockquote>"Your Reisa helped me see how to stand up for myself without blame or resentment. I feel empowered to move forward. Thank you for your loving guidance."</blockquote>
         <cite>Esther, 57</cite>
       </div>
       <div class="testimonial">
-        <blockquote>"After the Reisa, I felt totally aligned and renewed. One of the most magical experiences of my life."</blockquote>
+        <blockquote>"That session was exactly what I needed. I'm in a deep letting-go process, and I feel so much lighter now. The imagery and melody touched me deeply — thank you from the heart."</blockquote>
+        <cite>Daniela, 24</cite>
+      </div>
+      <div class="testimonial">
+        <blockquote>"I felt light and uplifted, filled with love and color. The personalized melody is so beautiful — I'll be listening daily. Thank you, Dada, for your presence and energy."</blockquote>
+        <cite>Cornelia, 54</cite>
+      </div>
+      <div class="testimonial">
+        <blockquote>"After the Reisa, I felt totally aligned and renewed. The audio brings me right back into that sacred space. One of the most magical experiences of my life."</blockquote>
         <cite>Livia, 25</cite>
+      </div>
+      <div class="testimonial">
+        <blockquote>"The Reisa gave me a deep sense of trust in myself. I cried — but in a good way. Your voice and the message touched something profound in me. I'll return to it again and again."</blockquote>
+        <cite>Madeleina, 27</cite>
       </div>
     </div>
   </div>
 </section>
 
-<!-- NEWSLETTER -->
-<section class="newsletter-section">
-  <div class="container">
+<!-- SECTION 8: NEWSLETTER (light-bold) -->
+<section class="page-section theme-light-bold newsletter-section">
+  <div class="content-wrapper">
     <h2>A Power Symbol For You</h2>
-    <p>Subscribe to my monthly newsletter and receive a Power Symbol including guided Meditation as a welcome gift. No spam. Unsubscribe anytime.</p>
+    <p>Subscribe to my monthly newsletter and receive a Power Symbol including guided Meditation as a welcome gift. No spam. You can unsubscribe at any time.</p>
     <form class="newsletter-form" action="#" method="post">
-      <input type="email" placeholder="E-Mail address" aria-label="E-Mail address" required>
-      <button type="submit" class="btn btn--primary">Subscribe</button>
+      <input type="email" name="email" placeholder="E-Mail address" aria-label="E-Mail address" required>
+      <button type="submit" class="btn btn--solid">SUBSCRIBE</button>
     </form>
   </div>
 </section>
+
 </main>
 
 <!-- FOOTER -->
 <footer class="site-footer">
   <div class="footer-social">
     <a href="https://instagram.com/dada.chi" aria-label="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.facebook.com/dadachi" aria-label="Facebook" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>
-    <a href="https://dadachi.com/podcast" aria-label="Podcast"><i class="fas fa-podcast"></i></a>
+    <a href="http://facebook.com/dada.chi" aria-label="Facebook" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>
   </div>
-  <nav class="footer-links">
+  <nav class="footer-nav">
     <a href="/imprint">Imprint</a>
     <a href="/privacy-policy">Privacy Policy</a>
     <a href="/terms-conditions">Terms &amp; Conditions</a>
-    <a href="/contact">Contact</a>
   </nav>
-  <p class="footer-copy">&copy; 2025 DADA CHI. All rights reserved.</p>
+  <p class="footer-copy">&copy; DADA CHI</p>
 </footer>
 
 <!-- FLOATING BUTTONS -->
 <div class="floating-buttons">
-  <button class="lang-button" onclick="window.location.href='/de/'" aria-label="Deutsch">
-    <span>🌐</span><span>DE</span>
-  </button>
-  <div id="whatsapp-button">
-    <a href="https://wa.me/41XXXXXXXXXX" target="_blank" rel="noopener" aria-label="WhatsApp">
-      <span class="icon"><i class="fab fa-whatsapp"></i></span>
-      <span class="label">WhatsApp</span>
-    </a>
-  </div>
+  <button class="floating-lang" onclick="window.location.href='/de/'" aria-label="Deutsch">🌐 DE</button>
+  <a href="https://wa.me/41000000000" class="floating-wa" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i> WhatsApp
+  </a>
 </div>
 
 </body>
