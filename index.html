@@ -7,7 +7,8 @@
   <meta name="description" content="Dada Chi – shamanic practitioner in Zurich. Chi Tribe Membership, Handpoke Tattoo Rituals &amp; Power Symbols rooted in sacred geometry.">
   <link rel="icon" type="image/x-icon" href="https://pub-ba018632258942529034e3ab490a6167.r2.dev/2f6dc6f6-7b19-4ddc-ae6f-5115a75c02d2_favicon.ico%EF%B9%96format=100w.png">
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne+Mono:wght@400&family=Amatic+SC:wght@400;700&family=Syne:ital,wght@0,400;0,600;0,700">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Syne:ital,wght@0,400;0,600;0,700&family=Syne+Mono:wght@400&family=Amatic+SC:wght@400;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:ital,wght@0,400;0,600;0,700&family=Syne+Mono:wght@400&family=Amatic+SC:wght@400;700&display=swap">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer">
   <style>
     /* ===== TOKENS from versioned CSS ===== */
@@ -650,6 +651,58 @@
     }
     .floating-lang:hover { background: var(--light-accent); }
 
+
+    /* ===== TESTIMONIALS CAROUSEL ===== */
+    .testimonials-carousel {
+      position: relative;
+      overflow: hidden;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .testimonials-track {
+      display: flex;
+      gap: 1.5rem;
+      transition: transform 0.4s ease;
+    }
+    .testimonials-track .testimonial {
+      flex: 0 0 calc(33.333% - 1rem);
+      min-width: 0;
+    }
+    .testimonials-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .testimonials-btn {
+      background: none;
+      border: 1.5px solid var(--accent);
+      color: var(--accent);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.2s, color 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .testimonials-btn:hover { background: var(--accent); color: var(--white); }
+    .testimonials-counter {
+      font-family: var(--mono-font);
+      font-size: 0.8rem;
+      opacity: 0.5;
+      letter-spacing: 0.05em;
+    }
+    @media (max-width: 900px) {
+      .testimonials-track .testimonial { flex: 0 0 100%; }
+    }
+    @media (min-width: 901px) and (max-width: 1100px) {
+      .testimonials-track .testimonial { flex: 0 0 calc(50% - 0.75rem); }
+    }
+
     /* ===== MOBILE MENU ===== */
     .mobile-nav {
       display: none;
@@ -772,7 +825,9 @@
   <div class="hero-section__bg"></div>
   <div class="hero-section__content">
     <div class="hero-section__logo-mark">
-      <img src="https://pub-ba018632258942529034e3ab490a6167.r2.dev/0fd5e3db-1d1b-4b37-b7e6-9aa70e350a3f_Dada_illustration_smiling_white%EF%B9%96format=2500w.png" alt="Dada Chi illustration">
+      <img src="https://pub-ba018632258942529034e3ab490a6167.r2.dev/0fd5e3db-1d1b-4b37-b7e6-9aa70e350a3f_Dada_illustration_smiling_white%EF%B9%96format=1000w.png"
+           srcset="https://pub-ba018632258942529034e3ab490a6167.r2.dev/0fd5e3db-1d1b-4b37-b7e6-9aa70e350a3f_Dada_illustration_smiling_white%EF%B9%96format=500w.png 500w, https://pub-ba018632258942529034e3ab490a6167.r2.dev/0fd5e3db-1d1b-4b37-b7e6-9aa70e350a3f_Dada_illustration_smiling_white%EF%B9%96format=1000w.png 1000w, https://pub-ba018632258942529034e3ab490a6167.r2.dev/0fd5e3db-1d1b-4b37-b7e6-9aa70e350a3f_Dada_illustration_smiling_white%EF%B9%96format=1500w.png 1500w"
+           sizes="min(280px, 50vw)" alt="Dada Chi illustration">
     </div>
     <h2 class="hero-section__heading">Connection of self and soul</h2>
     <p class="hero-section__sub">You feel more deeply than the world understands.</p>
@@ -795,7 +850,9 @@
     <div class="how-grid">
       <div class="how-card">
         <div class="how-card__icon">
-          <img src="https://pub-ba018632258942529034e3ab490a6167.r2.dev/b158adcc-81f1-4df0-8c1a-f25ca22864f4_Symbol-Cosmic-Radio%EF%B9%96format=2500w.png" alt="Power Symbols">
+          <img src="https://pub-ba018632258942529034e3ab490a6167.r2.dev/b158adcc-81f1-4df0-8c1a-f25ca22864f4_Symbol-Cosmic-Radio%EF%B9%96format=500w.png"
+               srcset="https://pub-ba018632258942529034e3ab490a6167.r2.dev/b158adcc-81f1-4df0-8c1a-f25ca22864f4_Symbol-Cosmic-Radio%EF%B9%96format=300w.png 300w, https://pub-ba018632258942529034e3ab490a6167.r2.dev/b158adcc-81f1-4df0-8c1a-f25ca22864f4_Symbol-Cosmic-Radio%EF%B9%96format=500w.png 500w, https://pub-ba018632258942529034e3ab490a6167.r2.dev/b158adcc-81f1-4df0-8c1a-f25ca22864f4_Symbol-Cosmic-Radio%EF%B9%96format=1000w.png 1000w"
+               sizes="120px" alt="Power Symbols">
         </div>
         <h4>Power Symbols</h4>
         <p>A Power Symbol that belongs only to you – from your energy, for your path. For meditation, everyday life, or as a tattoo on your skin.</p>
@@ -803,7 +860,9 @@
       </div>
       <div class="how-card">
         <div class="how-card__icon">
-          <img src="https://pub-ba018632258942529034e3ab490a6167.r2.dev/6a08dccd-47aa-481d-b654-12fcfc9fe77b_Symbol-Accompaniment%EF%B9%96format=2500w.png" alt="Chi Tribe">
+          <img src="https://pub-ba018632258942529034e3ab490a6167.r2.dev/6a08dccd-47aa-481d-b654-12fcfc9fe77b_Symbol-Accompaniment%EF%B9%96format=500w.png"
+               srcset="https://pub-ba018632258942529034e3ab490a6167.r2.dev/6a08dccd-47aa-481d-b654-12fcfc9fe77b_Symbol-Accompaniment%EF%B9%96format=300w.png 300w, https://pub-ba018632258942529034e3ab490a6167.r2.dev/6a08dccd-47aa-481d-b654-12fcfc9fe77b_Symbol-Accompaniment%EF%B9%96format=500w.png 500w, https://pub-ba018632258942529034e3ab490a6167.r2.dev/6a08dccd-47aa-481d-b654-12fcfc9fe77b_Symbol-Accompaniment%EF%B9%96format=1000w.png 1000w"
+               sizes="120px" alt="Chi Tribe">
         </div>
         <h4>Chi Tribe</h4>
         <p>Your spiritual home. Regular Flow Sessions, Aura School, Shamanic library – for CHF 99.– / month.</p>
@@ -811,7 +870,9 @@
       </div>
       <div class="how-card">
         <div class="how-card__icon">
-          <img src="https://pub-ba018632258942529034e3ab490a6167.r2.dev/0a6f02b4-3c85-4d7e-a866-8f6a7df1dc84_Symbol-tattoo%EF%B9%96format=2500w.png" alt="Tattoo Rituals">
+          <img src="https://pub-ba018632258942529034e3ab490a6167.r2.dev/0a6f02b4-3c85-4d7e-a866-8f6a7df1dc84_Symbol-tattoo%EF%B9%96format=500w.png"
+               srcset="https://pub-ba018632258942529034e3ab490a6167.r2.dev/0a6f02b4-3c85-4d7e-a866-8f6a7df1dc84_Symbol-tattoo%EF%B9%96format=300w.png 300w, https://pub-ba018632258942529034e3ab490a6167.r2.dev/0a6f02b4-3c85-4d7e-a866-8f6a7df1dc84_Symbol-tattoo%EF%B9%96format=500w.png 500w, https://pub-ba018632258942529034e3ab490a6167.r2.dev/0a6f02b4-3c85-4d7e-a866-8f6a7df1dc84_Symbol-tattoo%EF%B9%96format=1000w.png 1000w"
+               sizes="120px" alt="Tattoo Rituals">
         </div>
         <h4>Tattoo Rituals</h4>
         <p>Your personal Power Symbol as a tattoo – applied by hand in a private studio in Zurich, with ritual accompaniment. An experience that lasts.</p>
@@ -826,10 +887,12 @@
   <div class="content-wrapper">
     <div class="chitribe-section__inner">
       <div class="chitribe-section__logo">
-        <img src="https://pub-ba018632258942529034e3ab490a6167.r2.dev/426f145d-582c-4353-83a9-a1568586012b_Chi_Tribe_Logo%EF%B9%96format=2500w.png" alt="Chi Tribe Logo">
+        <img src="https://pub-ba018632258942529034e3ab490a6167.r2.dev/426f145d-582c-4353-83a9-a1568586012b_Chi_Tribe_Logo%EF%B9%96format=500w.png"
+           srcset="https://pub-ba018632258942529034e3ab490a6167.r2.dev/426f145d-582c-4353-83a9-a1568586012b_Chi_Tribe_Logo%EF%B9%96format=300w.png 300w, https://pub-ba018632258942529034e3ab490a6167.r2.dev/426f145d-582c-4353-83a9-a1568586012b_Chi_Tribe_Logo%EF%B9%96format=500w.png 500w, https://pub-ba018632258942529034e3ab490a6167.r2.dev/426f145d-582c-4353-83a9-a1568586012b_Chi_Tribe_Logo%EF%B9%96format=1000w.png 1000w"
+           sizes="280px" alt="Chi Tribe Logo">
       </div>
       <div class="chitribe-section__text">
-        <h1>You are not too much.<br><span>You just need the right space.</span></h1>
+        <h1>You are not too much.<br><span style="color:var(--dark-accent)">You just need the right space.</span></h1>
         <p>The Chi Tribe is a vibrant space for people who feel deeply – and are looking for a place where they can simply be themselves. Here you'll find shamanic practice that regulates rather than overwhelms, and a community that truly supports you.</p>
         <p>As a member, you'll benefit from regular Flow Sessions, the world's first Aura School, monthly shamanic journeys, a shamanic library, and an active Telegram group.</p>
         <p class="chitribe-section__pricing">For CHF 99 per month. Cancel anytime.</p>
@@ -900,7 +963,9 @@
   <div class="content-wrapper">
     <div class="aura-section__inner">
       <div class="aura-section__gif">
-        <img src="https://pub-ba018632258942529034e3ab490a6167.r2.dev/88ca9009-acde-48b9-9a04-6ae92f049006_Djeli+GIF%EF%B9%96format=2500w.gif" alt="Djeli – Aura Guide">
+        <img src="https://pub-ba018632258942529034e3ab490a6167.r2.dev/88ca9009-acde-48b9-9a04-6ae92f049006_Djeli+GIF%EF%B9%96format=500w.gif"
+        srcset="https://pub-ba018632258942529034e3ab490a6167.r2.dev/88ca9009-acde-48b9-9a04-6ae92f049006_Djeli+GIF%EF%B9%96format=300w.gif 300w, https://pub-ba018632258942529034e3ab490a6167.r2.dev/88ca9009-acde-48b9-9a04-6ae92f049006_Djeli+GIF%EF%B9%96format=500w.gif 500w, https://pub-ba018632258942529034e3ab490a6167.r2.dev/88ca9009-acde-48b9-9a04-6ae92f049006_Djeli+GIF%EF%B9%96format=1000w.gif 1000w"
+        sizes="180px" alt="Djeli – Aura Guide">
       </div>
       <div class="aura-section__text">
         <h2>Meet your Aura</h2>
@@ -935,42 +1000,61 @@
 <section class="page-section theme-white testimonials-section">
   <div class="content-wrapper">
     <p class="testimonials-section__heading">CLIENT VOICES</p>
-    <div class="testimonials-track">
-      <div class="testimonial">
-        <blockquote>"Everything in the Chi Tribe resonates with me. The Cosmic Radio Podcast inspires me every time. Dada, your care and dedication shine through."</blockquote>
-        <cite>Miu, 24</cite>
+    <div class="testimonials-carousel" id="testimonialsCarousel">
+      <div class="testimonials-track" id="testimonialsTrack">
+        <div class="testimonial">
+          <blockquote>"Everything in the Chi Tribe resonates with me. The Cosmic Radio Podcast inspires me every time. Dada, your care and dedication shine through."</blockquote>
+          <cite>Miu, 24</cite>
+        </div>
+        <div class="testimonial">
+          <blockquote>"I'm blown away by how much powerful content you offer at such a low price. I haven't even reached the Reisas yet — still integrating the video practices. Dada, your work is a true gift."</blockquote>
+          <cite>Deborah, 27</cite>
+        </div>
+        <div class="testimonial">
+          <blockquote>"After the last Community Reisa, I woke up feeling completely renewed — like I had been reborn. Thank you!"</blockquote>
+          <cite>Manuela, 40</cite>
+        </div>
+        <div class="testimonial">
+          <blockquote>"The Reisa was incredibly healing. My whole body tingled, I felt held and supported, and I woke up filled with fresh energy. Thank you, thank you, thank you!"</blockquote>
+          <cite>Deborah, 28</cite>
+        </div>
+        <div class="testimonial">
+          <blockquote>"Your Reisa helped me see how to stand up for myself without blame or resentment. I feel empowered to move forward. Thank you for your loving guidance."</blockquote>
+          <cite>Esther, 57</cite>
+        </div>
+        <div class="testimonial">
+          <blockquote>"That session was exactly what I needed. I'm in a deep letting-go process, and I feel so much lighter now. The imagery and melody touched me deeply — thank you from the heart."</blockquote>
+          <cite>Daniela, 24</cite>
+        </div>
+        <div class="testimonial">
+          <blockquote>"I felt light and uplifted, filled with love and color. The personalized melody is so beautiful — I'll be listening daily. Thank you, Dada, for your presence and energy."</blockquote>
+          <cite>Cornelia, 54</cite>
+        </div>
+        <div class="testimonial">
+          <blockquote>"After the Reisa, I felt totally aligned and renewed. The audio brings me right back into that sacred space. One of the most magical experiences of my life."</blockquote>
+          <cite>Livia, 25</cite>
+        </div>
+        <div class="testimonial">
+          <blockquote>"The Reisa gave me a deep sense of trust in myself. I cried — but in a good way. Your voice and the message touched something profound in me. I'll return to it again and again."</blockquote>
+          <cite>Madeleina, 27</cite>
+        </div>
+        <div class="testimonial">
+          <blockquote>"Thanks for another amazing Community Reisa. I've felt great ever since — more centered, more at peace, no matter what's going on."</blockquote>
+          <cite>Steven, 35</cite>
+        </div>
+        <div class="testimonial">
+          <blockquote>"Thank you for this beautiful experience. I feel finally ready to move forward. The recordings were deeply moving."</blockquote>
+          <cite>Manuela, 36</cite>
+        </div>
+        <div class="testimonial">
+          <blockquote>"The Reisa moved me deeply. I could feel Dada turning my small flame into a great fire. Her personal message afterward supports me so much."</blockquote>
+          <cite>Saskia, 26</cite>
+        </div>
       </div>
-      <div class="testimonial">
-        <blockquote>"I'm blown away by how much powerful content you offer at such a low price. I haven't even reached the Reisas yet — still integrating the video practices. Dada, your work is a true gift."</blockquote>
-        <cite>Deborah, 27</cite>
-      </div>
-      <div class="testimonial">
-        <blockquote>"After the last Community Reisa, I woke up feeling completely renewed — like I had been reborn. Thank you!"</blockquote>
-        <cite>Manuela, 40</cite>
-      </div>
-      <div class="testimonial">
-        <blockquote>"The Reisa was incredibly healing. My whole body tingled, I felt held and supported, and I woke up filled with fresh energy. Thank you, thank you, thank you!"</blockquote>
-        <cite>Deborah, 28</cite>
-      </div>
-      <div class="testimonial">
-        <blockquote>"Your Reisa helped me see how to stand up for myself without blame or resentment. I feel empowered to move forward. Thank you for your loving guidance."</blockquote>
-        <cite>Esther, 57</cite>
-      </div>
-      <div class="testimonial">
-        <blockquote>"That session was exactly what I needed. I'm in a deep letting-go process, and I feel so much lighter now. The imagery and melody touched me deeply — thank you from the heart."</blockquote>
-        <cite>Daniela, 24</cite>
-      </div>
-      <div class="testimonial">
-        <blockquote>"I felt light and uplifted, filled with love and color. The personalized melody is so beautiful — I'll be listening daily. Thank you, Dada, for your presence and energy."</blockquote>
-        <cite>Cornelia, 54</cite>
-      </div>
-      <div class="testimonial">
-        <blockquote>"After the Reisa, I felt totally aligned and renewed. The audio brings me right back into that sacred space. One of the most magical experiences of my life."</blockquote>
-        <cite>Livia, 25</cite>
-      </div>
-      <div class="testimonial">
-        <blockquote>"The Reisa gave me a deep sense of trust in myself. I cried — but in a good way. Your voice and the message touched something profound in me. I'll return to it again and again."</blockquote>
-        <cite>Madeleina, 27</cite>
+      <div class="testimonials-nav">
+        <button class="testimonials-btn" id="testimonialsPrev" aria-label="Previous">&#8592;</button>
+        <span class="testimonials-counter" id="testimonialsCounter">1 / 4</span>
+        <button class="testimonials-btn" id="testimonialsNext" aria-label="Next">&#8594;</button>
       </div>
     </div>
   </div>
@@ -981,10 +1065,13 @@
   <div class="content-wrapper">
     <h2>A Power Symbol For You</h2>
     <p>Subscribe to my monthly newsletter and receive a Power Symbol including guided Meditation as a welcome gift. No spam. You can unsubscribe at any time.</p>
-    <form class="newsletter-form" action="#" method="post">
-      <input type="email" name="email" placeholder="E-Mail address" aria-label="E-Mail address" required>
+    <form class="newsletter-form" action="https://emailoctopus.com/lists/YOUR_LIST_ID/members/embedded/1.3/add" method="post" data-message="Thank you for signing up!">
+      <input type="email" name="field_0" placeholder="E-Mail-Adresse" aria-label="E-Mail address" required>
       <button type="submit" class="btn btn--solid">SUBSCRIBE</button>
     </form>
+    <p class="newsletter-success" id="newsletterSuccess" style="display:none;margin-top:1rem;color:var(--accent);font-family:var(--mono-font);font-size:0.9rem;">
+      ✓ Thank you! Please check your <strong>spam folder</strong> for the e-mail with your <strong>Power Symbol</strong> &amp; Meditation.
+    </p>
   </div>
 </section>
 
@@ -1011,6 +1098,41 @@
     <i class="fab fa-whatsapp"></i> WhatsApp
   </a>
 </div>
+
+
+<script>
+(function() {
+  var track = document.getElementById('testimonialsTrack');
+  var counter = document.getElementById('testimonialsCounter');
+  if (!track) return;
+
+  var items = track.querySelectorAll('.testimonial');
+  var current = 0;
+  var perPage = window.innerWidth <= 900 ? 1 : window.innerWidth <= 1100 ? 2 : 3;
+  var total = Math.ceil(items.length / perPage);
+
+  function update() {
+    perPage = window.innerWidth <= 900 ? 1 : window.innerWidth <= 1100 ? 2 : 3;
+    total = Math.ceil(items.length / perPage);
+    if (current >= total) current = total - 1;
+    var itemWidth = items[0].offsetWidth + 24; // 24 = gap
+    track.style.transform = 'translateX(-' + (current * perPage * itemWidth) + 'px)';
+    counter.textContent = (current + 1) + ' / ' + total;
+  }
+
+  document.getElementById('testimonialsNext').addEventListener('click', function() {
+    current = (current + 1) % total;
+    update();
+  });
+  document.getElementById('testimonialsPrev').addEventListener('click', function() {
+    current = (current - 1 + total) % total;
+    update();
+  });
+
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
 
 </body>
 </html>
