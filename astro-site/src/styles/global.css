@@ -9,7 +9,7 @@
   --teal:          #166891;
   --body-font:     'Syne', sans-serif;
   --heading-font:  'Syne', sans-serif;
-  --display-font:  'Amatic SC', cursive;
+  --display-font:  'Syne Mono', monospace;
   --mono-font:     'Syne Mono', monospace;
 }
 
@@ -303,7 +303,7 @@ strong { font-weight: 600; }
   align-items: center;
   text-align: center;
   border: 1px solid rgba(0,0,0,0.1);
-  border-radius: 4px;
+  border-radius: 1.5rem;
   padding: 2.5rem 2rem;
   gap: 1rem;
 }
@@ -353,16 +353,19 @@ strong { font-weight: 600; }
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 .foryou-item {
-  padding: 1.5rem 2rem;
-  border: 1px solid rgba(0,0,0,0.08);
-  border-radius: 4px;
-  font-size: 0.95rem;
-  line-height: 1.7;
-  opacity: 0.85;
+  overflow: hidden;
+  border-radius: 1rem;
+}
+.foryou-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 1rem;
 }
 
 /* ===== APPROACH ===== */
@@ -411,10 +414,10 @@ strong { font-weight: 600; }
 }
 .membership-feature {
   padding: 2rem;
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 4px;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 1rem;
 }
-.membership-feature h4 { color: var(--white); margin-bottom: 0.75rem; font-size: 0.85rem; }
+.membership-feature h4 { color: var(--black); margin-bottom: 0.75rem; font-size: 0.85rem; }
 .membership-feature p { font-size: 0.9rem; opacity: 0.75; }
 
 /* ===== AURA APP ===== */
@@ -564,6 +567,14 @@ strong { font-weight: 600; }
   color: var(--white);
   padding: 4vmax 4vw 3vmax;
   text-align: center;
+}
+.footer-logo {
+  margin-bottom: 2rem;
+}
+.footer-logo img {
+  height: 60px;
+  width: auto;
+  opacity: 0.9;
 }
 .footer-social {
   display: flex;

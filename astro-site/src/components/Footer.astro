@@ -4,13 +4,19 @@ export interface Props {
 }
 const { lang = 'de' } = Astro.props;
 const altLang = lang === 'de' ? 'en' : 'de';
+const R2 = 'https://pub-ba018632258942529034e3ab490a6167.r2.dev';
 ---
 
 <!-- FOOTER -->
 <footer class="site-footer">
+  <div class="footer-logo">
+    <img src={`${R2}/adbb76e3-8361-4f10-82ea-3e5d7da38d94_Logo_Dada_Chi-2%EF%B9%96format=1500w.png`} alt="Dada Chi Logo" />
+  </div>
   <div class="footer-social">
     <a href="https://instagram.com/dada.chi" aria-label="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
     <a href="http://facebook.com/dada.chi" aria-label="Facebook" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>
+    <a href="https://www.youtube.com/@dadachitao" aria-label="YouTube" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
+    <a href="https://soundcloud.com/ta0chi" aria-label="SoundCloud" target="_blank" rel="noopener"><i class="fab fa-soundcloud"></i></a>
   </div>
   <nav class="footer-nav">
     {lang === 'en' ? (
@@ -21,7 +27,7 @@ const altLang = lang === 'de' ? 'en' : 'de';
       </>
     ) : (
       <>
-        <a href="/de/imprint">Impressum</a>
+        <a href="/de/imprint">Imprint</a>
         <a href="/de/privacy-policy">Datenschutz</a>
         <a href="/de/terms-conditions">AGB</a>
       </>
