@@ -1,9 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700&family=Syne+Mono:ital,wght@0,400&family=Amatic+SC:wght@400;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* ── Google Fonts ── */
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700&family=Syne+Mono:ital,wght@0,400&family=Amatic+SC:wght@400;700&display=swap');
 
 /* ── CSS Custom Properties (mirror Squarespace palette) ── */
 :root {
