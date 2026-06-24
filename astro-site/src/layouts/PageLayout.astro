@@ -15,7 +15,7 @@ const currentPath = Astro.url.pathname;
 ---
 <BaseLayout {title} {description} {lang} {canonicalUrl}>
   <Header {lang} {currentPath} />
-  <main id="page">
+  <main>
     <slot />
   </main>
   <Footer {lang} />

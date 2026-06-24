@@ -3,48 +3,39 @@ export interface Props {
   lang?: 'de' | 'en';
 }
 const { lang = 'de' } = Astro.props;
-
-const R2 = 'https://pub-ba018632258942529034e3ab490a6167.r2.dev';
-
-const links = lang === 'de'
-  ? {
-      imprint: { label: 'Impressum', href: '/de/imprint' },
-      terms: { label: 'AGB', href: '/de/terms-conditions' },
-      privacy: { label: 'Datenschutz', href: '/de/privacy-policy' },
-    }
-  : {
-      imprint: { label: 'Imprint', href: '/en/imprint' },
-      terms: { label: 'Terms & Conditions', href: '/en/terms-conditions' },
-      privacy: { label: 'Privacy Policy', href: '/en/privacy-policy' },
-    };
+const altLang = lang === 'de' ? 'en' : 'de';
 ---
 
-<footer class="w-full border-t border-gray-200 bg-dc-white">
-  <div class="max-w-screen-xl mx-auto px-6 md:px-12 py-12 flex flex-col md:flex-row items-center justify-between gap-6">
-
-    <!-- Logo -->
-    <a href={`/${lang}/`}>
-      <img
-        src="https://pub-ba018632258942529034e3ab490a6167.r2.dev/adbb76e3-8361-4f10-82ea-3e5d7da38d94_Logo_Dada_Chi-2%EF%B9%96format=1500w.png"
-        onerror={`this.src='${R2}/a485a9ae-e6de-461b-99d4-d092f488f944_Dada%2BChi%2BLogo%EF%B9%96format=300w.png'`}
-        alt="Dada Chi"
-        width="100"
-        height="40"
-        loading="lazy"
-        class="h-10 w-auto object-contain"
-      />
-    </a>
-
-    <!-- Legal links -->
-    <nav class="flex gap-4 text-xs font-syne-mono uppercase tracking-wider opacity-60">
-      <a href={links.imprint.href} class="hover:opacity-100 transition-opacity">{links.imprint.label}</a>
-      <span>|</span>
-      <a href={links.terms.href} class="hover:opacity-100 transition-opacity">{links.terms.label}</a>
-      <span>|</span>
-      <a href={links.privacy.href} class="hover:opacity-100 transition-opacity">{links.privacy.label}</a>
-    </nav>
-
-    <!-- Copyright -->
-    <p class="text-xs font-syne-mono opacity-40">© DADA CHI 2026</p>
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-social">
+    <a href="https://instagram.com/dada.chi" aria-label="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+    <a href="http://facebook.com/dada.chi" aria-label="Facebook" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>
   </div>
+  <nav class="footer-nav">
+    {lang === 'en' ? (
+      <>
+        <a href="/en/imprint">Imprint</a>
+        <a href="/en/privacy-policy">Privacy Policy</a>
+        <a href="/en/terms-conditions">Terms &amp; Conditions</a>
+      </>
+    ) : (
+      <>
+        <a href="/de/imprint">Impressum</a>
+        <a href="/de/privacy-policy">Datenschutz</a>
+        <a href="/de/terms-conditions">AGB</a>
+      </>
+    )}
+  </nav>
+  <p class="footer-copy">&copy; DADA CHI</p>
 </footer>
+
+<!-- FLOATING BUTTONS -->
+<div class="floating-buttons">
+  <button class="floating-lang" onclick={`window.location.href='/${altLang}/'`} aria-label={altLang === 'de' ? 'Deutsch' : 'English'}>
+    🌐 {altLang.toUpperCase()}
+  </button>
+  <a href="https://wa.me/41000000000" class="floating-wa" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i> WhatsApp
+  </a>
+</div>

@@ -1,25 +1,297 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
-import HeroSection from '../../components/home/HeroSection.astro';
-import ServicesSection from '../../components/home/ServicesSection.astro';
-import ChiTribeCTA from '../../components/home/ChiTribeCTA.astro';
-import AuraAppSection from '../../components/home/AuraAppSection.astro';
-import BookSection from '../../components/home/BookSection.astro';
-import TestimonialsSection from '../../components/home/TestimonialsSection.astro';
-import NewsletterSection from '../../components/home/NewsletterSection.astro';
+const R2 = 'https://pub-ba018632258942529034e3ab490a6167.r2.dev';
 ---
 
 <PageLayout
-  title="Dada Chi | Schamanische Praktikerin & Handpoke Tattoo | Zürich"
-  description="Dada Chi – Schamanische Praktikerin, Meditationslehrerin & Handpoke Tattoo Künstlerin in Zürich. Chi Tribe, Kraftsymbole & Aura-Schule."
+  title="Dada Chi | Schamanische Praktikerin &amp; Handpoke Tattoo | Zürich"
+  description="Dada Chi – schamanische Praktikerin in Zürich. Chi Tribe Membership, Handpoke Tattoo Rituale &amp; Kraftsymbole verwurzelt in heiliger Geometrie."
   lang="de"
   canonicalUrl="https://dadachi.com/de/"
 >
-  <HeroSection lang="de" />
-  <ServicesSection lang="de" />
-  <ChiTribeCTA lang="de" />
-  <AuraAppSection lang="de" />
-  <BookSection lang="de" />
-  <TestimonialsSection lang="de" />
-  <NewsletterSection lang="de" />
+
+<!-- SECTION 1: HERO -->
+<section class="page-section hero-section">
+  <div class="hero-section__bg" style={`background-image: url('${R2}/d747ec00-d28c-43e5-aca7-30031d0940a1_beautiful-feathers-arrangement%20%3F%20format%3D1500w.jpg');`}></div>
+  <div class="hero-section__content">
+    <div class="hero-section__logo-mark">
+      <img loading="eager" src={`${R2}/0fd5e3db-1d1b-4b37-b7e6-9aa70e350a3f_Dada_illustration_smiling_white%20%3F%20format%3D2500w.png`} alt="Dada Chi Illustration" />
+    </div>
+    <h2 class="hero-section__heading">Verbindung von Seele und Selbst</h2>
+    <p class="hero-section__sub">Du fühlst tiefer als die Welt es versteht.</p>
+    <p class="hero-section__body">
+      Ich halte als schamanische Praktikerin und Meditationslehrerin<br />
+      einen Raum, in dem Du ganz Du selbst sein kannst.
+    </p>
+    <div class="hero-section__buttons">
+      <a href="/become-member" class="btn btn--solid">Chi Tribe beitreten</a>
+      <a href="https://tally.so/r/wo14zX" class="btn btn--outline-white">Kraftsymbol bestellen</a>
+      <a href="/de/tattoo-rituals-trainings" class="btn btn--outline-white">Tattoo Ritual buchen</a>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2: WIE ICH MIT DIR ARBEITE -->
+<section class="page-section theme-bright-inverse how-section">
+  <div class="content-wrapper">
+    <h2 class="how-section__heading">Wie ich mit Dir arbeite</h2>
+    <div class="how-grid">
+      <div class="how-card">
+        <div class="how-card__icon">
+          <img loading="eager" src={`${R2}/b158adcc-81f1-4df0-8c1a-f25ca22864f4_Symbol-Cosmic-Radio%20%3F%20format%3D2500w.png`} alt="Kraftsymbole" />
+        </div>
+        <h4>Kraftsymbole</h4>
+        <p>Ein Kraftsymbol, das nur Dir gehört – aus Deiner Energie, für Deinen Weg. Für Meditation, Alltag oder als Tattoo auf der Haut.</p>
+        <a href="https://tally.so/r/wo14zX" class="btn btn--solid">Kraftsymbol jetzt bestellen</a>
+      </div>
+      <div class="how-card">
+        <div class="how-card__icon">
+          <img loading="eager" src={`${R2}/6a08dccd-47aa-481d-b654-12fcfc9fe77b_Symbol-Accompaniment%20%3F%20format%3D2500w.png`} alt="Chi Tribe" />
+        </div>
+        <h4>Chi Tribe</h4>
+        <p>Dein spirituelles Zuhause. Regelmässige Flow Sessions, Aura-Schule, schamanische Bibliothek – für CHF 110.– / Monat.</p>
+        <a href="/become-member" class="btn btn--solid">Chi Tribe heute beitreten</a>
+      </div>
+      <div class="how-card">
+        <div class="how-card__icon">
+          <img loading="eager" src={`${R2}/0a6f02b4-3c85-4d7e-a866-8f6a7df1dc84_Symbol-tattoo%20%3F%20format%3D2500w.png`} alt="Tattoo Rituale" />
+        </div>
+        <h4>Tattoo Rituale</h4>
+        <p>Dein persönliches Kraftsymbol als Tätowierung – von Hand gesetzt in einem privaten Studio in Zürich, mit ritualer Begleitung. Ein Erlebnis, das bleibt.</p>
+        <a href="/de/tattoo-rituals-trainings" class="btn btn--solid">Tattoo Ritual jetzt buchen</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3: CHI TRIBE -->
+<section class="page-section theme-light chitribe-section">
+  <div class="content-wrapper">
+    <div class="chitribe-section__inner">
+      <div class="chitribe-section__logo">
+        <img loading="eager" src={`${R2}/426f145d-582c-4353-83a9-a1568586012b_Chi_Tribe_Logo%20%3F%20format%3D2500w.png`} alt="Chi Tribe Logo" />
+      </div>
+      <div class="chitribe-section__text">
+        <h1>Du bist nicht zu viel.<br /><span style="color:var(--dark-accent)">Du brauchst den richtigen Raum.</span></h1>
+        <p>Der Chi Tribe ist ein lebendiger Raum für Menschen, die tief spüren – und einen Ort suchen, an dem sie einfach sie selbst sein dürfen. Hier findest Du schamanische Praxis, die reguliert statt überfordert, und Gemeinschaft, die wirklich trägt.</p>
+        <p>Als Mitglied profitierst Du von regelmässigen Flow Sessions, der ersten Aura-Schule der Erde, monatlichen schamanischen Reisen, einer schamanischen Bibliothek und einer aktiven Telegram-Gruppe.</p>
+        <p class="chitribe-section__pricing">Für CHF 110.– im Monat. Kündbar jederzeit.</p>
+        <div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:1.5rem;">
+          <a href="/become-member" class="btn btn--solid">Mitglied werden</a>
+          <a href="/de/chi-tribe/overview" class="btn btn--outline">Mehr erfahren</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3b: FÜR DICH WENN -->
+<section class="page-section theme-light foryou-section" style="padding-top:0;">
+  <div class="content-wrapper">
+    <h3>der Chi Tribe ist für Dich, wenn…</h3>
+    <div class="foryou-grid">
+      <div class="foryou-item">... Du Spiritualität und Energie ins Zentrum Deines Lebens stellen möchtest – und immer wieder scheiterst, weil das Aussen zu laut und der innere Anker zu leise ist.</div>
+      <div class="foryou-item">... Du müde bist von spirituellen Angeboten, die Dir versprechen, Dich zu transformieren – und einfach einen echten Raum zum Üben suchst.</div>
+      <div class="foryou-item">... Du weisst, dass Stille mehr verändert als jedes Konzept. Und Du einen Rhythmus brauchst, der Dich Woche für Woche zu Dir selbst zurückbringt.</div>
+      <div class="foryou-item">... Du Gemeinschaft möchtest, die nicht performt. Die einfach ist.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3c: WAS PASSIERT / ANSATZ -->
+<section class="page-section theme-light approach-section" style="padding-top:2rem;">
+  <div class="approach-section__inner">
+    <h3>Was im Chi Tribe passiert</h3>
+    <ul class="approach-list">
+      <li>Arbeit mit Körper, Energie und Wahrnehmung</li>
+      <li>Klären von Verbindungen, Grenzen und inneren Bildern</li>
+      <li>Die wöchentlichen Sessions sind ruhig, tief und stärkend.</li>
+    </ul>
+    <h3>Mein Ansatz</h3>
+    <p class="approach-quote">Ich arbeite nicht, um zu reparieren, sondern um zu erinnern. Nicht autoritär, sondern um Struktur zu geben. Nicht um zu beschleunigen, sondern um zu regulieren. Nicht über Dir, sondern mit Dir.</p>
+  </div>
+</section>
+
+<!-- SECTION 4: MITGLIEDSCHAFT FEATURES -->
+<section class="page-section theme-dark membership-section">
+  <div class="content-wrapper">
+    <div class="membership-section__header">
+      <h2>Chi Tribe – Für CHF 110.– / Monat<br />bekommst Du:</h2>
+    </div>
+    <div class="membership-features">
+      <div class="membership-feature">
+        <h4>Flow Sessions &amp; Schamanische Reisen</h4>
+        <p>Der Alltag zieht. Die Verbindung verblasst. Der Chi Tribe gibt Dir einen stabilen Rhythmus – regelmässige Impulse und eine monatliche schamanische Reise, die Dich immer wieder zu Dir selbst zurückbringen. Nicht als Verpflichtung, sondern als Anker.</p>
+      </div>
+      <div class="membership-feature">
+        <h4>Die erste Aura-Schule der Erde</h4>
+        <p>Sieben Stufen schamanischen Selbstwissens – exklusiv für den Chi Tribe entwickelt. Du lernst zu erkennen, was wirklich Dir gehört, alte Muster loszulassen und eine klare Verbindung zu Deiner eigenen Energie aufzubauen. Dein Tempo. Dein Weg.</p>
+      </div>
+      <div class="membership-feature">
+        <h4>Schamanische Bibliothek</h4>
+        <p>Gesänge, Runen, Kristallwissen, Chakra-Meditationen, E-Books – eine lebendige Sammlung spirituellen Wissens, die Dich begleitet. Da, wenn Du es willst. Kein Programm, kein Druck. Einfach da.</p>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:3rem;">
+      <a href="/become-member" class="btn btn--outline-white">Mitglied werden</a>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5: AURA APP -->
+<section class="page-section theme-dark aura-section">
+  <div class="content-wrapper">
+    <div class="aura-section__inner">
+      <div class="aura-section__gif">
+        <img loading="eager" src={`${R2}/88ca9009-acde-48b9-9a04-6ae92f049006_Djeli+GIF%20%3F%20format%3D2500w.gif`} alt="Djeli – Aura Guide" />
+      </div>
+      <div class="aura-section__text">
+        <h2>Triff Deine Aura</h2>
+        <p>Dieser kleine Kerl ist Djeli – der Schamane der Gnothi Seauton Web App. Er führt Dich kostenlos durch fünf Schritte: Hara, Körper, Emotionen, Gedanken, Visionen.</p>
+        <p>Kein Kurs, keine Anmeldung – einfach ausprobieren.</p>
+        <a href="/gnothi-seauton-web-app" class="btn btn--outline-white">Kostenlose Aura-Reise starten</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 6: BUCH -->
+<section class="page-section theme-light book-section">
+  <div class="content-wrapper">
+    <div class="book-section__inner">
+      <div class="book-section__cover">
+        <img loading="eager" src={`${R2}/baec4561-1785-4948-b4bc-e2692ee32410_Menschsein-1-DE.png%EF%B9%96format=2500w.webp`} alt="Menschsein – Ein Reiseführer" />
+      </div>
+      <div class="book-section__text">
+        <h2>Oder lass mein Buch Dein Begleiter sein.</h2>
+        <p class="book-section__price">CHF 22.00</p>
+        <p>In „Menschsein – Ein Reiseführer" zeige ich Dir die schamanische Perspektive auf die Welt. Was ist "Gott"? Was ist die Anderswelt oder das Jenseits? Was ist ein Mensch? Und was ist sein Zweck? Warum ist das Leben auf der Erde im Moment so schmerzhaft? Und wie kann Mensch mit diesem Schmerz am konstruktivsten umgehen?</p>
+        <p>Woraus besteht die Aura, und wie funktioniert sie? Was ist der Platz des Menschen im grossen Netz des Lebens? Begleite den Schamanen Djeli und seine Enkelin Elea auf einer Reise durch die metaphysischen Ebenen des Menschseins.</p>
+        <p>Neben vielen philosophischen und spirituellen Erklärungen enthält „Menschsein" Anleitungen für die Praxis der liebevollen Selbstreflexion.</p>
+        <a href="/de/books" class="btn btn--solid" style="margin-top:1rem;">Buch jetzt kaufen</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 7: TESTIMONIALS -->
+<section class="page-section theme-white testimonials-section">
+  <div class="content-wrapper">
+    <p class="testimonials-section__heading">STIMMEN DER KLIENTINNEN</p>
+    <div class="testimonials-carousel" id="testimonialsCarousel">
+      <div class="testimonials-track" id="testimonialsTrack">
+        <div class="testimonial">
+          <blockquote>"Ich liebe alles am Chi Tribe. Besonders der Cosmic Radio Podcast inspiriert mich jedes Mal aufs Neue. Dada, man spürt Deine Hingabe in allem."</blockquote>
+          <cite>Miu, 24</cite>
+        </div>
+        <div class="testimonial">
+          <blockquote>"Ich bin überwältigt, wie viel kraftvolle Inhalte Du für so wenig anbietest. Ich bin noch mitten in den Übungen und freue mich schon auf den Cosmic Radio Podcast. Du bist ein Geschenk."</blockquote>
+          <cite>Deborah, 27</cite>
+        </div>
+        <div class="testimonial">
+          <blockquote>"Nach der letzten Community Reisa bin ich wie neugeboren aufgewacht. Danke!"</blockquote>
+          <cite>Manuela, 40</cite>
+        </div>
+        <div class="testimonial">
+          <blockquote>"Die Reisa war unglaublich schön und heilend. Mein ganzer Körper hat gekribbelt, ich fühlte mich getragen. Am nächsten Morgen: voller Energie. Tausend Dank!"</blockquote>
+          <cite>Deborah, 28</cite>
+        </div>
+        <div class="testimonial">
+          <blockquote>"Die Reisa hat mir gezeigt, wie ich für mich einstehen kann – ohne Groll. Ich fühle mich gestärkt. Dada ist so liebevoll und verständnisvoll. Herzlichen Dank!"</blockquote>
+          <cite>Esther, 57</cite>
+        </div>
+        <div class="testimonial">
+          <blockquote>"Ich bin gerade in einem grossen Loslass-Prozess – und diese Reisa hat so viel gelöst. Ich fühle mich befreit und zutiefst dankbar. Von Herzen: Danke."</blockquote>
+          <cite>Daniela, 24</cite>
+        </div>
+        <div class="testimonial">
+          <blockquote>"Ich fühlte mich leicht, voller Liebe und Freude. Die persönliche Melodie ist wunderschön – ich werde sie täglich hören. Danke, Dada. Es ist eine Bereicherung, dich zu kennen."</blockquote>
+          <cite>Cornelia, 54</cite>
+        </div>
+        <div class="testimonial">
+          <blockquote>"Ich bin nach der Reisa vollkommen in Einklang mit mir selbst. Die Melodie bringt mich sofort zurück in diesen Raum. Eine der magischsten Erfahrungen meines Lebens."</blockquote>
+          <cite>Livia, 25</cite>
+        </div>
+        <div class="testimonial">
+          <blockquote>"Die Reisa war sehr berührend. Ich spürte, wie aus meiner kleinen Flamme ein grosses Feuer wurde. Als ich Dadas Gesicht vor mir sah, wusste ich: die Übertragung ist vollendet. Die persönliche Nachricht danach hilft mir sehr. Danke Dada!"</blockquote>
+          <cite>Saskia, 26</cite>
+        </div>
+        <div class="testimonial">
+          <blockquote>"Die Reisa war wunderschön und hat mich tief berührt. Ich fühle mich bereit, weiterzugehen. Von Herzen danke!"</blockquote>
+          <cite>Manuela, 36</cite>
+        </div>
+        <div class="testimonial">
+          <blockquote>"Nach der Reisa hatte ich ein tiefes Vertrauen in mich. Ich habe geweint – auf eine gute Weise. Deine Worte haben mich wirklich erreicht. Danke für diese Erfahrung."</blockquote>
+          <cite>Madeleina, 27</cite>
+        </div>
+        <div class="testimonial">
+          <blockquote>"Die Community Reisa war wieder grossartig! Ich fühle mich seither gelassen und in meiner Mitte – selbst wenn es mal nicht so rund läuft. Danke von Herzen!"</blockquote>
+          <cite>Steven, 35</cite>
+        </div>
+      </div>
+      <div class="testimonials-nav">
+        <button class="testimonials-btn" id="testimonialsPrev" aria-label="Zurück">&#8592;</button>
+        <span class="testimonials-counter" id="testimonialsCounter">1 / 4</span>
+        <button class="testimonials-btn" id="testimonialsNext" aria-label="Weiter">&#8594;</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 8: NEWSLETTER -->
+<section class="page-section theme-light-bold newsletter-section">
+  <div class="content-wrapper">
+    <h2>Ein Kraftsymbol für Dich</h2>
+    <p>Abonniere meinen monatlichen Newsletter und erhalte als Willkommensgeschenk ein Kraftsymbol inklusive Meditation. Kein Spam. Jederzeit abmeldbar.</p>
+    <form class="newsletter-form" id="newsletterForm">
+      <input type="email" name="email" placeholder="E-Mail-Adresse" aria-label="E-Mail-Adresse" required />
+      <button type="submit" class="btn btn--solid">ABONNIEREN</button>
+    </form>
+    <p id="newsletterSuccess" style="display:none;margin-top:1rem;color:var(--accent);font-family:var(--mono-font);font-size:0.9rem;">
+      ✓ Vielen Dank! Prüfe Deinen <strong>Spam-Ordner</strong> für die Mail mit Deinem <strong>Kraftsymbol</strong> &amp; Meditation.
+    </p>
+  </div>
+</section>
+
 </PageLayout>
+
+<script>
+(function() {
+  var track = document.getElementById('testimonialsTrack');
+  var counter = document.getElementById('testimonialsCounter');
+  if (!track || !counter) return;
+
+  var items = track.querySelectorAll('.testimonial');
+  var current = 0;
+  var perPage = window.innerWidth <= 900 ? 1 : window.innerWidth <= 1100 ? 2 : 3;
+  var total = Math.ceil(items.length / perPage);
+
+  function update() {
+    perPage = window.innerWidth <= 900 ? 1 : window.innerWidth <= 1100 ? 2 : 3;
+    total = Math.ceil(items.length / perPage);
+    if (current >= total) current = total - 1;
+    var itemWidth = (items[0] as HTMLElement).offsetWidth + 24;
+    (track as HTMLElement).style.transform = 'translateX(-' + (current * perPage * itemWidth) + 'px)';
+    counter.textContent = (current + 1) + ' / ' + total;
+  }
+
+  document.getElementById('testimonialsNext')?.addEventListener('click', function() {
+    current = (current + 1) % total;
+    update();
+  });
+  document.getElementById('testimonialsPrev')?.addEventListener('click', function() {
+    current = (current - 1 + total) % total;
+    update();
+  });
+
+  window.addEventListener('resize', update);
+  update();
+
+  document.getElementById('newsletterForm')?.addEventListener('submit', function(e) {
+    e.preventDefault();
+    (this as HTMLElement).style.display = 'none';
+    var s = document.getElementById('newsletterSuccess');
+    if (s) s.style.display = 'block';
+  });
+})();
+</script>
